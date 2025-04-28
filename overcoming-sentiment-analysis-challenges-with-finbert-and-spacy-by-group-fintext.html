@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="https://buehlmaier.github.io/FINA4350-student-blog-2025-01/theme/css/elegant.prod.9e9d5ce754.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="https://buehlmaier.github.io/FINA4350-student-blog-2025-01/theme/css/custom.css" media="screen">
+
+        <link rel="dns-prefetch" href="//fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+
+        <meta name="author" content="FINA4350 Students 2025" />
+
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+
+<meta name="keywords" content="Group FinText, Reflective Report, " />
+
+<meta property="og:title" content="Overcoming Sentiment Analysis Challenges with FinBERT and SpaCy (by Group &#34;FinText&#34;) "/>
+<meta property="og:url" content="https://buehlmaier.github.io/FINA4350-student-blog-2025-01/overcoming-sentiment-analysis-challenges-with-finbert-and-spacy-by-group-fintext.html" />
+<meta property="og:description" content="Introduction Information is the foundation of decision-making in the fast-paced and ever-changing financial markets. From news articles and social media updates to earnings reports and analyst opinions, the constant stream of information provides investors with critical insights. However, the sheer volume and complexity of this information present significant challenges. How …" />
+<meta property="og:site_name" content="FINA4350 Student Blog 2025" />
+<meta property="og:article:author" content="FINA4350 Students 2025" />
+<meta property="og:article:published_time" content="2025-03-14T00:00:00+08:00" />
+<meta name="twitter:title" content="Overcoming Sentiment Analysis Challenges with FinBERT and SpaCy (by Group &#34;FinText&#34;) ">
+<meta name="twitter:description" content="Introduction Information is the foundation of decision-making in the fast-paced and ever-changing financial markets. From news articles and social media updates to earnings reports and analyst opinions, the constant stream of information provides investors with critical insights. However, the sheer volume and complexity of this information present significant challenges. How …">
+
+        <title>Overcoming Sentiment Analysis Challenges with FinBERT and SpaCy (by Group &#34;FinText&#34;)  · FINA4350 Student Blog 2025
+</title>
+        <link href="https://buehlmaier.github.io/FINA4350-student-blog-2025-01/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="FINA4350 Student Blog 2025 - Full Atom Feed" />
+
+
+
+    </head>
+    <body>
+        <div id="content">
+            <div class="navbar navbar-static-top">
+                <div class="navbar-inner">
+                    <div class="container-fluid">
+                        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </a>
+                        <a class="brand" href="https://buehlmaier.github.io/FINA4350-student-blog-2025-01/"><span class=site-name>FINA4350 Student Blog 2025</span></a>
+                        <div class="nav-collapse collapse">
+                            <ul class="nav pull-right top-menu">
+                                <li >
+                                    <a href=
+                                       https://buehlmaier.github.io/FINA4350-student-blog-2025-01
+                                    >Home</a>
+                                </li>
+                                <li ><a href="https://buehlmaier.github.io/FINA4350-student-blog-2025-01/categories.html">Categories</a></li>
+                                <li ><a href="https://buehlmaier.github.io/FINA4350-student-blog-2025-01/tags.html">Tags</a></li>
+                                <li ><a href="https://buehlmaier.github.io/FINA4350-student-blog-2025-01/archives.html">Archives</a></li>
+                                <li><form class="navbar-search" action="https://buehlmaier.github.io/FINA4350-student-blog-2025-01/search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid">
+                <div class="row-fluid">
+                    <div class="span1"></div>
+                    <div class="span10">
+<article itemscope>
+<div class="row-fluid">
+    <header class="page-header span10 offset2">
+        <h1>
+            <a href="https://buehlmaier.github.io/FINA4350-student-blog-2025-01/overcoming-sentiment-analysis-challenges-with-finbert-and-spacy-by-group-fintext.html">
+                Overcoming Sentiment Analysis Challenges with FinBERT and SpaCy (by Group "FinText")
+            </a>
+        </h1>
+    </header>
+</div>
+
+<div class="row-fluid">
+        <div class="span8 offset2 article-content">
+            
+            <h2>Introduction</h2>
+<p>Information is the foundation of decision-making in the fast-paced and ever-changing financial markets. From news articles and social media updates to earnings reports and analyst opinions, the constant stream of information provides investors with critical insights. However, the sheer volume and complexity of this information present significant challenges. How can we extract actionable insights from this deluge of data? This question guided our group’s exploration of Natural Language Processing (NLP) techniques for financial text analysis.</p>
+<p>Our project, "News-driven NLP Quant," aims to analyze financial news to provide insights that inform trading strategies and optimize portfolio performance. As we worked on the project, we encountered several challenges that shaped our approach and led us to adopt domain-specific
+models like FinBERT and feature extraction techniques such as Named-Entity Recognition (NER) using SpaCy.</p>
+<h2>The Challenge of TextBlob Sentiment Analysis in Financial Texts</h2>
+<p>Sentiment analysis emerged as a natural starting point for our project. By assessing the tone of financial news, we could quantify market sentiment and help investors make informed decisions. However, as we delved deeper, we realized that sentiment analysis in the financial domain is far from straightforward.</p>
+<p>Initially, we experimented with TextBlob, a popular Python library for sentiment analysis. While TextBlob is easy to use and provides a quick way to determine whether text has a positive, negative, or neutral tone, it has significant limitations when applied to financial texts. TextBlob
+treats each word independently, lacking the ability to understand the contextual meaning of words. This is particularly problematic in financial texts, where domain-specific jargon and ambiguous phrases are common. Additionally, TextBlob’s general-purpose approach results in lower accuracy when analyzing the nuanced language of financial markets.</p>
+<p>Here’s an example of how we used TextBlob for sentiment analysis, which returns a polarity score based on the sentiment of the news article.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">textblob</span> <span class="kn">import</span> <span class="n">TextBlob</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">TextBlob</span><span class="p">(</span><span class="n">news_article</span><span class="p">)</span><span class="o">.</span><span class="n">polarity</span><span class="p">)</span>
+</code></pre></div>
+
+<p>While TextBlob provided a quick and easy way to gauge sentiment, its limitations led us to explore more advanced solutions.</p>
+<h2>Enhancing Sentiment Analysis with FinBERT</h2>
+<p>To address the shortcomings of traditional sentiment analysis tools, we turned to FinBERT, a pre-trained NLP model specifically designed for financial texts. FinBERT, available on Hugging Face, is fine-tuned on a large corpus of financial news and reports, enabling it to accurately interpret the nuanced language of financial markets.</p>
+<p>FinBERT excels at understanding context and domain-specific phrases, making it significantly more accurate than general-purpose models. For instance, terms like "closure" and "surge" can carry vastly different sentiments depending on the context. FinBERT can accurately analyze news headings such as "360 Energy Liability Management Accelerates Environmental Site Closure Business with Strategic Acquisition," recognizing it as a positive development. Similarly, it correctly interprets "Bitcoin's surge confuses even pro traders: 'It's trading like a Treasury'" as conveying a negative sentiment. By deciphering the nuanced meanings behind such terms, FinBERT delivers precise and actionable insights.</p>
+<p>Additionally, FinBERT’s context awareness allows it to handle complex linguistic features such as negation and sarcasm, which are often challenging for general-purpose tools. Its training on financial-specific language ensures that it captures the subtle nuances and jargon unique to the financial domain. This capability ensures that our sentiment analysis is both accurate and relevant to the financial domain.</p>
+<p>Here’s a code snippet demonstrating how we used FinBERT.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">transformers</span> <span class="kn">import</span> <span class="n">pipeline</span>
+<span class="n">pipe</span> <span class="o">=</span> <span class="n">pipeline</span><span class="p">(</span><span class="s2">&quot;text-classification&quot;</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s2">&quot;yiyanghkust/finbert-tone&quot;</span><span class="p">)</span>
+<span class="n">pipe</span><span class="p">(</span><span class="n">news_article</span><span class="p">)</span>
+</code></pre></div>
+
+<p>Let's consider this fictional news. The result shows that the news article input has a positive sentiment with 99.9% confidence. In contrast, TextBlob classified the same passage as neutral, failing to capture the positive sentiment evident in the article. This stark difference highlights FinBERT’s accuracy in analyzing financial news, providing more reliable and actionable insights.</p>
+<blockquote>
+<p>Fictional News March 18, 2025<br>
+FinText Limited reported a 15% decline in revenue this quarter,
+citing market volatility and slower enterprise adoption.
+On the same day, CEO Alvin Ku announced the launch of Project NLP in FINA4350.
+Despite the revenue drop, analysts at Morgan Stanley remain optimistic.
+Investors are watching closely as FinText Limited pivots toward cutting-edge text analytics advancements to fuel future growth.</p>
+</blockquote>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">TextBlob</span><span class="p">(</span><span class="n">news_article</span><span class="p">)</span><span class="o">.</span><span class="n">polarity</span><span class="p">)</span>
+<span class="c1"># TextBlob Output: Neutral (-0.0357)</span>
+
+<span class="n">pipe</span><span class="p">(</span><span class="n">news_article</span><span class="p">)</span>
+<span class="c1"># FinBERT Output: Strong Positive (0.9994)</span>
+</code></pre></div>
+
+<h2>Extracting Granular Insights with Named-Entity Recognition (NER)</h2>
+<p>While sentiment analysis provides a high-level view of market sentiment, it lacks granularity. To address this, we incorporated NER using SpaCy, an open-source NLP library with fast and accurate entity recognition capabilities.</p>
+<p>SpaCy’s deep-learning based recognition system is highly efficient, making it ideal for processing large volumes of financial text. It also allows for customization, enabling us to identify and classify domain-specific entities such as company names, stock tickers, and financial terms with high accuracy.</p>
+<p>Here’s an example of how we used SpaCy for NER. The model successfully identified and labelled entities such as person, date, and organization, as shown in the code snippet below. This capability is particularly useful for extracting structured information from unstructured financial texts, enabling us to analyze relationships between entities and gain deeper insights into market trends and events.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">spacy</span>
+<span class="n">nlp</span> <span class="o">=</span> <span class="n">spacy</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;en_core_web_lg&quot;</span><span class="p">)</span>
+<span class="n">doc</span> <span class="o">=</span> <span class="n">nlp</span><span class="p">(</span><span class="n">news_article</span><span class="p">)</span>
+<span class="n">spacy</span><span class="o">.</span><span class="n">displacy</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">doc</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;ent&quot;</span><span class="p">,</span> <span class="n">jupyter</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</code></pre></div>
+
+<p><img alt="Picture showing the output of NER" src="https://buehlmaier.github.io/FINA4350-student-blog-2025-01/images/group-FinText-NER_spacy.png"></p>
+<p>By combining FinBERT with SpaCy’s NER capabilities, we linked sentiment scores to specific entities mentioned in financial news. For example, rather than assigning a general sentiment score to an article discussing multiple companies, our system identifies which companies are being discussed and associates each with its respective sentiment. This entity-specific approach ensures that investors can focus on the news most relevant to their portfolios.</p>
+<h2>Conclusion: A Continous Exploration of Financial NLP</h2>
+<p>Our project highlights the power of combining sentiment analysis, NER, and domain-specific models like FinBERT to tackle the challenges of financial NLP. By leveraging these advanced techniques, we can extract actionable insights from financial texts, enabling more informed decision-making in the markets. As we move forward, we will continue exploring advanced methods for NLP in financial markets to refine our approach.</p>
+
+
+             
+ 
+            
+            
+            
+
+
+
+
+
+
+
+            <hr/>
+        </div>
+        <section id="article-sidebar" class="span2">
+            <h4>Published</h4>
+            <time itemprop="dateCreated" datetime="2025-03-14T00:00:00+08:00">Fri 14 March 2025</time>
+            <h4>Category</h4>
+            <a class="category-link" href="https://buehlmaier.github.io/FINA4350-student-blog-2025-01/categories.html#reflective-report-ref">Reflective Report</a>
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article">
+                <li><a href="https://buehlmaier.github.io/FINA4350-student-blog-2025-01/tags.html#group-fintext-ref">Group FinText
+                    <span class="superscript">2</span>
+</a></li>
+            </ul>
+<h4>Contact</h4>
+<div id="sidebar-social-link">
+    <a href="https://github.com/buehlmaier/FINA4350-student-blog-2025-01" title="" target="_blank" rel="nofollow noopener noreferrer">
+        <svg xmlns="http://www.w3.org/2000/svg" aria-label="GitHub" role="img" viewBox="0 0 512 512"><rect width="512" height="512" rx="15%" fill="#1B1817"/><path fill="#fff" d="M335 499c14 0 12 17 12 17H165s-2-17 12-17c13 0 16-6 16-12l-1-50c-71 16-86-28-86-28-12-30-28-37-28-37-24-16 1-16 1-16 26 2 40 26 40 26 22 39 59 28 74 22 2-17 9-28 16-35-57-6-116-28-116-126 0-28 10-51 26-69-3-6-11-32 3-67 0 0 21-7 70 26 42-12 86-12 128 0 49-33 70-26 70-26 14 35 6 61 3 67 16 18 26 41 26 69 0 98-60 120-117 126 10 8 18 24 18 48l-1 70c0 6 3 12 16 12z"/></svg>
+    </a>
+</div>
+            
+
+
+
+
+
+            
+
+
+
+
+
+        </section>
+</div>
+</article>
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe.
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides.
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo https://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                    </div>
+                    <div class="span1"></div>
+                </div>
+            </div>
+        </div>
+<footer>
+
+
+
+
+    <div id="fpowered">
+        Powered by: <a href="http://getpelican.com/" title="Pelican Home Page" target="_blank" rel="nofollow noopener noreferrer">Pelican</a>
+        Theme: <a href="https://elegant.oncrashreboot.com/" title="Theme Elegant Home Page" target="_blank" rel="nofollow noopener noreferrer">Elegant</a>
+    </div>
+</footer>            <script src="//code.jquery.com/jquery.min.js"></script>
+        <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+        <script src="https://buehlmaier.github.io/FINA4350-student-blog-2025-01/theme/js/elegant.prod.9e9d5ce754.js"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+
+    <script>
+    (function () {
+        if (window.location.hash.match(/^#comment-\d+$/)) {
+            $('#comment_thread').collapse('show');
+        }
+    })();
+    window.onhashchange=function(){
+        if (window.location.hash.match(/^#comment-\d+$/))
+            window.location.reload(true);
+    }
+    $('#comment_thread').on('shown', function () {
+        var link = document.getElementById('comment-accordion-toggle');
+        var old_innerHTML = link.innerHTML;
+        $(link).fadeOut(200, function() {
+            $(this).text('Click here to hide comments').fadeIn(200);
+        });
+        $('#comment_thread').on('hidden', function () {
+            $(link).fadeOut(200, function() {
+                $(this).text(old_innerHTML).fadeIn(200);
+            });
+        })
+    })
+</script>
+
+    </body>
+    <!-- Theme: Elegant built for Pelican
+        License : MIT -->
+</html>

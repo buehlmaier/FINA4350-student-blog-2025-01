@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="https://buehlmaier.github.io/FINA4350-student-blog-2025-01/theme/css/elegant.prod.9e9d5ce754.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="https://buehlmaier.github.io/FINA4350-student-blog-2025-01/theme/css/custom.css" media="screen">
+
+        <link rel="dns-prefetch" href="//fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+
+        <meta name="author" content="FINA4350 Students 2025" />
+
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+
+<meta name="keywords" content="Group Four Guys, Reflective Report, " />
+
+<meta property="og:title" content="Data Preprocessing for Sentiment Analysis in Earning Call Transcripts (by Group &#34;Four Guys&#34;) "/>
+<meta property="og:url" content="https://buehlmaier.github.io/FINA4350-student-blog-2025-01/data-preprocessing-for-sentiment-analysis-in-earning-call-transcripts-by-group-four-guys.html" />
+<meta property="og:description" content="By Group &#34;Four Guys&#34; Exploring the power of sentiments in earning calls In the fast-paced world of finance, earnings calls serve as a critical bridge between companies and their stakeholders. In these meetings, company executives discuss financial results, strategic priorities, and future outlooks, which generate a wealth of unstructured textual …" />
+<meta property="og:site_name" content="FINA4350 Student Blog 2025" />
+<meta property="og:article:author" content="FINA4350 Students 2025" />
+<meta property="og:article:published_time" content="2025-03-24T20:00:00+08:00" />
+<meta name="twitter:title" content="Data Preprocessing for Sentiment Analysis in Earning Call Transcripts (by Group &#34;Four Guys&#34;) ">
+<meta name="twitter:description" content="By Group &#34;Four Guys&#34; Exploring the power of sentiments in earning calls In the fast-paced world of finance, earnings calls serve as a critical bridge between companies and their stakeholders. In these meetings, company executives discuss financial results, strategic priorities, and future outlooks, which generate a wealth of unstructured textual …">
+
+        <title>Data Preprocessing for Sentiment Analysis in Earning Call Transcripts (by Group &#34;Four Guys&#34;)  · FINA4350 Student Blog 2025
+</title>
+        <link href="https://buehlmaier.github.io/FINA4350-student-blog-2025-01/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="FINA4350 Student Blog 2025 - Full Atom Feed" />
+
+
+
+    </head>
+    <body>
+        <div id="content">
+            <div class="navbar navbar-static-top">
+                <div class="navbar-inner">
+                    <div class="container-fluid">
+                        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </a>
+                        <a class="brand" href="https://buehlmaier.github.io/FINA4350-student-blog-2025-01/"><span class=site-name>FINA4350 Student Blog 2025</span></a>
+                        <div class="nav-collapse collapse">
+                            <ul class="nav pull-right top-menu">
+                                <li >
+                                    <a href=
+                                       https://buehlmaier.github.io/FINA4350-student-blog-2025-01
+                                    >Home</a>
+                                </li>
+                                <li ><a href="https://buehlmaier.github.io/FINA4350-student-blog-2025-01/categories.html">Categories</a></li>
+                                <li ><a href="https://buehlmaier.github.io/FINA4350-student-blog-2025-01/tags.html">Tags</a></li>
+                                <li ><a href="https://buehlmaier.github.io/FINA4350-student-blog-2025-01/archives.html">Archives</a></li>
+                                <li><form class="navbar-search" action="https://buehlmaier.github.io/FINA4350-student-blog-2025-01/search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid">
+                <div class="row-fluid">
+                    <div class="span1"></div>
+                    <div class="span10">
+<article itemscope>
+<div class="row-fluid">
+    <header class="page-header span10 offset2">
+        <h1>
+            <a href="https://buehlmaier.github.io/FINA4350-student-blog-2025-01/data-preprocessing-for-sentiment-analysis-in-earning-call-transcripts-by-group-four-guys.html">
+                Data Preprocessing for Sentiment Analysis in Earning Call Transcripts (by Group "Four Guys")
+            </a>
+        </h1>
+    </header>
+</div>
+
+<div class="row-fluid">
+        <div class="span8 offset2 article-content">
+            
+            <p>By Group "Four Guys"</p>
+<h2>Exploring the power of sentiments in earning calls</h2>
+<p>In the fast-paced world of finance, earnings calls serve as a critical bridge between companies and their stakeholders. In these meetings, company executives discuss financial results, strategic priorities, and future outlooks, which generate a wealth of unstructured textual data. It is not just about reporting numbers like revenue and profits, they also craft narratives with words that project confidence or on the other hand, show hesitations and risk. Hence, our group is interested in finding out possible relationships between these unspoken cues and its stock price movements.</p>
+<p><img alt="Picture showing Vint" src="https://buehlmaier.github.io/FINA4350-student-blog-2025-01/images/Four-Guys_01_Vint.png"></p>
+<p>With advancements in natural language processing, we can now quantify this sentiment and explore its tangible impact on financial markets.</p>
+<p>By analyzing management’s tone (positive, negative, or neutral) and correlating it with post-call stock returns, we aim to answer two key questions:</p>
+<ol>
+<li>
+<p>Does a positive sentiment in earnings calls correlate with stock price increases, and does negative sentiment precede declines?</p>
+</li>
+<li>
+<p>Can sentiment analysis serve as a reliable predictive tool for investor decision-making?</p>
+</li>
+</ol>
+<p>In order to test our hypothesis, we will have to explore and gather these data:</p>
+<ol>
+<li>Earnings call transcripts: from S&amp;P 500 companies over the past years </li>
+<li>Stock price data: Daily closing prices for the same companies, specifically focusing on 1-day and 1-week post-call windows to capture short-term market reactions.</li>
+<li>Alignment: Precise pairing of transcripts sentiments with their corresponding stock return calculations to ensure accurate analysis.</li>
+</ol>
+<p>To initiate our project, the first step is undoubtedly data collection. This step is critical in the data workflow, as the quality of our data directly influences all subsequent processes. If we begin with subpar input, the output is unlikely to be much better. In addition to data quality, we must also consider the cost of obtaining information.</p>
+<blockquote>
+<p>“Garbage in, Garbage out” ~ George Fuechsel, an IBM programmer</p>
+</blockquote>
+<p>For our data mining efforts, we require a substantial number of earnings call transcripts from various companies and different time periods. Ideally, we are seeking a freely accessible database with API available. However, our research has indicated that most high-quality databases come with significant subscription fees, which adds to the overall cost of information acquisition, as shown in the following table.</p>
+<p><img alt="Table of database" src="https://buehlmaier.github.io/FINA4350-student-blog-2025-01/images/Four-Guys_01_Table.png"></p>
+<p>For some platforms, such as FactSet, while free trials may be available, they typically have limitations, either in duration or by requiring detailed company information to access.</p>
+<p>We have discovered a free database provided by the Motley Fool that offers earnings call transcripts. However, there is no official API available. We have decided to develop our own scraper to efficiently download a large number of earnings call transcripts. </p>
+<p><img alt="Earning Transcripts from Motley Fool" src="https://buehlmaier.github.io/FINA4350-student-blog-2025-01/images/Four-Guys_01_Earnings.png"></p>
+<h2>1. Scraping Links to Transcripts</h2>
+<div class="highlight"><pre><span></span><code><span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">500</span><span class="p">)):</span>
+    <span class="n">params</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;page&#39;</span><span class="p">:</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">}</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+        <span class="s1">&#39;https://www.fool.com/earnings-call-transcripts/filtered_articles_by_page/&#39;</span><span class="p">,</span>
+        <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">,</span> <span class="n">cookies</span><span class="o">=</span><span class="n">cookies</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span>
+    <span class="p">)</span>
+    <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s1">&#39;html&#39;</span><span class="p">],</span> <span class="s1">&#39;html.parser&#39;</span><span class="p">)</span>
+    <span class="n">links</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s2">&quot;flex-shrink-0 w-1/3 mr-16px sm:w-auto&quot;</span><span class="p">)</span>
+    <span class="n">results</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="sa">f</span><span class="s2">&quot;https://www.fool.com</span><span class="si">{</span><span class="n">link</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;href&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">for</span> <span class="n">link</span> <span class="ow">in</span> <span class="n">links</span><span class="p">])</span>
+</code></pre></div>
+
+<p>We used BeautifulSoup and python Requests to scrap and stores 500 webpages of links that points to past transcripts from the Motley Fool’s archive. Each page is then stored in Redis for caching. 
+We are using pandarallel for parallel processing in later parts to scrap transcripts from each link efficiently, and Redis is initialized for our data pipeline. </p>
+<h2>2. Get list of S&amp;P 500 tickers, extract price data and calculate stock returns</h2>
+<div class="highlight"><pre><span></span><code><span class="n">price</span> <span class="o">=</span> <span class="n">yf</span><span class="o">.</span><span class="n">download</span><span class="p">([</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">stock_code</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span> <span class="k">if</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">s_p</span><span class="o">.</span><span class="n">Symbol</span><span class="o">.</span><span class="n">to_list</span><span class="p">()],</span> <span class="n">period</span><span class="o">=</span><span class="s1">&#39;4y&#39;</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">get_stock_returns</span><span class="p">(</span><span class="n">row</span><span class="p">,</span> <span class="n">days</span><span class="p">):</span>
+   <span class="n">start_loc</span> <span class="o">=</span> <span class="kc">None</span>
+   <span class="k">if</span> <span class="n">row</span><span class="o">.</span><span class="n">stock_code</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">price</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+       <span class="k">return</span> <span class="kc">None</span>
+   <span class="k">else</span><span class="p">:</span>
+       <span class="k">if</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;datetime&#39;</span><span class="p">]</span> <span class="ow">in</span> <span class="n">price</span><span class="o">.</span><span class="n">index</span><span class="p">:</span>
+           <span class="n">start_loc</span> <span class="o">=</span> <span class="n">price</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;datetime&#39;</span><span class="p">])</span>
+       <span class="k">else</span><span class="p">:</span>
+           <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">):</span>
+               <span class="n">idx</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;datetime&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">datetime</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="n">days</span> <span class="o">=</span> <span class="n">i</span><span class="p">)</span>
+               <span class="k">if</span> <span class="n">idx</span> <span class="ow">in</span> <span class="n">price</span><span class="o">.</span><span class="n">index</span><span class="p">:</span>
+                   <span class="n">start_loc</span> <span class="o">=</span> <span class="n">price</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="n">idx</span><span class="p">)</span>
+
+       <span class="k">if</span> <span class="n">start_loc</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+           <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span>
+       <span class="n">s</span> <span class="o">=</span> <span class="n">price</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">start_loc</span> <span class="p">:</span> <span class="n">start_loc</span> <span class="o">+</span> <span class="n">days</span> <span class="o">+</span> <span class="mi">1</span><span class="p">][</span><span class="n">row</span><span class="o">.</span><span class="n">stock_code</span><span class="p">]</span>
+       <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">days</span><span class="p">:</span>
+           <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span>
+       <span class="k">return</span> <span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">s</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">/</span> <span class="n">s</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</code></pre></div>
+
+<p>After extracting the transcript, stock ticker and date, we merge them into a dataframe. We then extract a list of S&amp;P 500 companies and extract their price data from Yahoo Finance by bulk downloading all stock codes into the dataframe using only the closing price. The get_stock_returns function takes each transcript (row), then obtain the prices of that stock in the next few days and obtain its 1-to-7 day returns. If one of the day is not a trading day, then it shifts onto the next trading day. </p>
+<h2>3. Sentiment Analysis</h2>
+<div class="highlight"><pre><span></span><code><span class="n">analyzer</span> <span class="o">=</span> <span class="n">SentimentIntensityAnalyzer</span><span class="p">()</span>
+
+<span class="c1"># Define a function to compute sentiment score from text.</span>
+<span class="k">def</span> <span class="nf">compute_sentiment</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+    <span class="c1"># If text is NaN, return np.nan</span>
+    <span class="k">if</span> <span class="n">pd</span><span class="o">.</span><span class="n">isna</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+    <span class="n">sentiment</span> <span class="o">=</span> <span class="n">analyzer</span><span class="o">.</span><span class="n">polarity_scores</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+    <span class="c1"># Use the compound score which summarizes overall sentiment.</span>
+    <span class="k">return</span> <span class="n">sentiment</span><span class="p">[</span><span class="s1">&#39;compound&#39;</span><span class="p">]</span>
+
+<span class="c1"># Next, we will calculate the correlations between the sentiment score and the return columns.</span>
+<span class="c1"># List the columns that represent returns:</span>
+<span class="n">return_columns</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">_day_return&quot;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">8</span><span class="p">)]</span>
+
+<span class="c1"># We&#39;ll add &#39;sentiment&#39; to the list for correlation analysis.</span>
+<span class="n">columns_of_interest</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;sentiment&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">return_columns</span>
+
+<span class="c1"># Apply sentiment analysis on the transcript text column</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;sentiment&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;cleaned_data&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">parallel_apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">TextBlob</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">sentiment</span><span class="o">.</span><span class="n">polarity</span><span class="p">)</span>
+
+<span class="c1"># Calculate the correlation matrix for these columns.</span>
+<span class="n">corr_matrix</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">columns_of_interest</span><span class="p">]</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span>
+</code></pre></div>
+
+<p>After establishing the data pipeline (collecting, cleaning and pre-proecssing), we now start to analyse sentiment based on the earning calls transcript text and summarizing the overall sentiment using the pre-trained sentiment analysis model from the Vader module. After which we calculate the correlations between sentiment score and the stock reutrn columns (1-to-7 days) and visualize using a correlation matrix and heatmap. The heatmap which can be seen below.</p>
+<p><img alt="Heatmap Diagram" src="https://buehlmaier.github.io/FINA4350-student-blog-2025-01/images/Four-Guys_01_Heatmap.png">
+<img alt="7 day Scatterplot Diagram" src="https://buehlmaier.github.io/FINA4350-student-blog-2025-01/images/Four-Guys_01_Scatter.png"></p>
+<p>The scatterplot and the correlation heatmap suggests a low correlation between returns and the sentiment score calculated by this method. We will explore other analyzers in thhe future and see if more information can extracted.</p>
+
+
+             
+ 
+            
+            
+            
+
+
+
+
+
+
+
+            <hr/>
+        </div>
+        <section id="article-sidebar" class="span2">
+            <h4>Published</h4>
+            <time itemprop="dateCreated" datetime="2025-03-24T20:00:00+08:00">Mon 24 March 2025</time>
+            <h4>Category</h4>
+            <a class="category-link" href="https://buehlmaier.github.io/FINA4350-student-blog-2025-01/categories.html#reflective-report-ref">Reflective Report</a>
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article">
+                <li><a href="https://buehlmaier.github.io/FINA4350-student-blog-2025-01/tags.html#group-four-guys-ref">Group Four Guys
+                    <span class="superscript">1</span>
+</a></li>
+            </ul>
+<h4>Contact</h4>
+<div id="sidebar-social-link">
+    <a href="https://github.com/buehlmaier/FINA4350-student-blog-2025-01" title="" target="_blank" rel="nofollow noopener noreferrer">
+        <svg xmlns="http://www.w3.org/2000/svg" aria-label="GitHub" role="img" viewBox="0 0 512 512"><rect width="512" height="512" rx="15%" fill="#1B1817"/><path fill="#fff" d="M335 499c14 0 12 17 12 17H165s-2-17 12-17c13 0 16-6 16-12l-1-50c-71 16-86-28-86-28-12-30-28-37-28-37-24-16 1-16 1-16 26 2 40 26 40 26 22 39 59 28 74 22 2-17 9-28 16-35-57-6-116-28-116-126 0-28 10-51 26-69-3-6-11-32 3-67 0 0 21-7 70 26 42-12 86-12 128 0 49-33 70-26 70-26 14 35 6 61 3 67 16 18 26 41 26 69 0 98-60 120-117 126 10 8 18 24 18 48l-1 70c0 6 3 12 16 12z"/></svg>
+    </a>
+</div>
+            
+
+
+
+
+
+            
+
+
+
+
+
+        </section>
+</div>
+</article>
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe.
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides.
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo https://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                    </div>
+                    <div class="span1"></div>
+                </div>
+            </div>
+        </div>
+<footer>
+
+
+
+
+    <div id="fpowered">
+        Powered by: <a href="http://getpelican.com/" title="Pelican Home Page" target="_blank" rel="nofollow noopener noreferrer">Pelican</a>
+        Theme: <a href="https://elegant.oncrashreboot.com/" title="Theme Elegant Home Page" target="_blank" rel="nofollow noopener noreferrer">Elegant</a>
+    </div>
+</footer>            <script src="//code.jquery.com/jquery.min.js"></script>
+        <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+        <script src="https://buehlmaier.github.io/FINA4350-student-blog-2025-01/theme/js/elegant.prod.9e9d5ce754.js"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+
+    <script>
+    (function () {
+        if (window.location.hash.match(/^#comment-\d+$/)) {
+            $('#comment_thread').collapse('show');
+        }
+    })();
+    window.onhashchange=function(){
+        if (window.location.hash.match(/^#comment-\d+$/))
+            window.location.reload(true);
+    }
+    $('#comment_thread').on('shown', function () {
+        var link = document.getElementById('comment-accordion-toggle');
+        var old_innerHTML = link.innerHTML;
+        $(link).fadeOut(200, function() {
+            $(this).text('Click here to hide comments').fadeIn(200);
+        });
+        $('#comment_thread').on('hidden', function () {
+            $(link).fadeOut(200, function() {
+                $(this).text(old_innerHTML).fadeIn(200);
+            });
+        })
+    })
+</script>
+
+    </body>
+    <!-- Theme: Elegant built for Pelican
+        License : MIT -->
+</html>
