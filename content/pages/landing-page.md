@@ -24,7 +24,13 @@ blog posts below only shows the most recent posts.
 
 Names of student groups:
 
-  * 
+  * AI16z
+  * DeepText Analysts
+  * Depthseeker
+  * FinBlazers
+  * FinText
+  * Four Guys
+  * NLPredict
 
 The source code of this blog is available on
 [GitHub](https://github.com/buehlmaier/FINA4350-student-blog-2025-01).
