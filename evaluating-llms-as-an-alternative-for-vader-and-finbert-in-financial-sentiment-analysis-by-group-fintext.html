@@ -17,16 +17,16 @@
 
 <meta name="keywords" content="Group FinText, Reflective Report, " />
 
-<meta property="og:title" content="Tips on Data Collection via API (by Group &#34;FinText&#34;) "/>
-<meta property="og:url" content="https://buehlmaier.github.io/FINA4350-student-blog-2025-01/tips-on-data-collection-via-api-by-group-fintext.html" />
-<meta property="og:description" content="Introduction Data retrieval is the process of extracting relevant textual information from large datasets or databases. It&#39;s a crucial first step in many NLP workflows. By harnessing the power of APIs (Application Programming Interfaces), you can request data on-demand to fuel various analytical endeavors. In this post, we&#39;ll explore fundamental …" />
+<meta property="og:title" content="Evaluating LLMs as an Alternative for VADER and FinBERT in Financial Sentiment Analysis (by Group &#34;FinText&#34;) "/>
+<meta property="og:url" content="https://buehlmaier.github.io/FINA4350-student-blog-2025-01/evaluating-llms-as-an-alternative-for-vader-and-finbert-in-financial-sentiment-analysis-by-group-fintext.html" />
+<meta property="og:description" content="Introduction Sentiment analysis has become an essential tool in trading, extracting market-moving signals from data sources like news articles. Our News-driven NLP Quant project currently employs two established methods: VADER, a lexicon-based approach, and FinBERT, a financial domain-specific model. With the emergence of sophisticated large language models (LLMs), we must …" />
 <meta property="og:site_name" content="FINA4350 Student Blog 2025" />
 <meta property="og:article:author" content="FINA4350 Students 2025" />
-<meta property="og:article:published_time" content="2025-03-20T00:00:00+08:00" />
-<meta name="twitter:title" content="Tips on Data Collection via API (by Group &#34;FinText&#34;) ">
-<meta name="twitter:description" content="Introduction Data retrieval is the process of extracting relevant textual information from large datasets or databases. It&#39;s a crucial first step in many NLP workflows. By harnessing the power of APIs (Application Programming Interfaces), you can request data on-demand to fuel various analytical endeavors. In this post, we&#39;ll explore fundamental …">
+<meta property="og:article:published_time" content="2025-04-28T00:00:00+08:00" />
+<meta name="twitter:title" content="Evaluating LLMs as an Alternative for VADER and FinBERT in Financial Sentiment Analysis (by Group &#34;FinText&#34;) ">
+<meta name="twitter:description" content="Introduction Sentiment analysis has become an essential tool in trading, extracting market-moving signals from data sources like news articles. Our News-driven NLP Quant project currently employs two established methods: VADER, a lexicon-based approach, and FinBERT, a financial domain-specific model. With the emergence of sophisticated large language models (LLMs), we must …">
 
-        <title>Tips on Data Collection via API (by Group &#34;FinText&#34;)  · FINA4350 Student Blog 2025
+        <title>Evaluating LLMs as an Alternative for VADER and FinBERT in Financial Sentiment Analysis (by Group &#34;FinText&#34;)  · FINA4350 Student Blog 2025
 </title>
         <link href="https://buehlmaier.github.io/FINA4350-student-blog-2025-01/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="FINA4350 Student Blog 2025 - Full Atom Feed" />
 
@@ -68,8 +68,8 @@
 <div class="row-fluid">
     <header class="page-header span10 offset2">
         <h1>
-            <a href="https://buehlmaier.github.io/FINA4350-student-blog-2025-01/tips-on-data-collection-via-api-by-group-fintext.html">
-                Tips on Data Collection via API (by Group "FinText")
+            <a href="https://buehlmaier.github.io/FINA4350-student-blog-2025-01/evaluating-llms-as-an-alternative-for-vader-and-finbert-in-financial-sentiment-analysis-by-group-fintext.html">
+                Evaluating LLMs as an Alternative for VADER and FinBERT in Financial Sentiment Analysis (by Group "FinText")
             </a>
         </h1>
     </header>
@@ -79,63 +79,86 @@
         <div class="span8 offset2 article-content">
             
             <h2>Introduction</h2>
-<p>Data retrieval is the process of extracting relevant textual information from large datasets or databases. It's a crucial first step in many NLP workflows. By harnessing the power of APIs (Application Programming Interfaces), you can request data on-demand to fuel various analytical endeavors.</p>
-<p>In this post, we'll explore fundamental strategies for collecting data through APIs. We'll also walk through sample code on data retrieval and discuss how can we handle large datasets.</p>
-<h2>Simple Data Retrieval using AРІ</h2>
-<p>If you're new to APIs, this simple demonstration can help you quickly understand data retrieval using API. Taking Alpha Vantage API as an example, we use Python's requests library to get news articles for Apple (AAPL).</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">requests</span>
-<span class="n">url</span><span class="o">=</span><span class="s1">&#39;https://www.alphavantage.co/query?function=NEWS_SENTIMENT&amp;tickers=AAPL&amp;apikey=demo&#39;</span>
-<span class="n">data</span><span class="o">=</span><span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-</code></pre></div>
-
-<h2>Prints Data in a Nicely Formatted Way</h2>
-<p>Exploring your data using printed output is a great way to understand the structure before moving on to further analysis or storage. Python provides this handy pprint module for easier readability:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pprint</span>
-<span class="n">pp</span><span class="o">=</span><span class="n">pprint</span><span class="o">.</span><span class="n">PrettyPrinter</span><span class="p">()</span>
-<span class="n">pp</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-</code></pre></div>
-
-<p>This improves readability by neatly formatting nested data structures, making debugging and exploration simpler.</p>
-<h2>Dealing with Big Data</h2>
-<p>Many APIs allow you to fetch large datasets, but they often impose limits such as the response sizes. To deal with these constraints, you often need to make repeated calls, iterating through available pages or date ranges. Below is a sample pseudocode illustrating how you can handle paginated data collection:</p>
-<div class="highlight"><pre><span></span><code>Pseudocode
-
-URL = &quot;https://api.example.com/data&quot;
-API_KEY = &quot;your_api_key_here&quot;
-
-data = []
-
-loop through every date:
-    loop through every page:
-        response = request(URL, API_KEY, current_date, current_page)
-        if response.status_code == 200:
-            data.append(response.json())
-</code></pre></div>
-
-<p>When dealing with extensive datasets, waiting on each page or date sequentially can slow you down. You can speed up this process using asynchronous programming, which lets you request multiple pages or date ranges concurrently.</p>
-<div class="highlight"><pre><span></span><code>Pseudocode
-
-async def fetch_data():
-    do something
-</code></pre></div>
-
-<h2>Converting to a Pandas DataFrame</h2>
-<p>After collecting data from your API, one common next step is to convert that data into a Pandas DataFrame. Pandas is a powerful Python library for data cleaning, transformation and exploration.</p>
-<p>Assuming your API returns in JSON format, you can convert it using this code snippet:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-</code></pre></div>
-
-<h2>Saving Data into Permanent Storage</h2>
-<p>After collecting your data, consider storing it in a permanent format for future analysis. Depending on your project requirements, you can save to in different formats such as Parquet, CSV, Excel:</p>
-<div class="highlight"><pre><span></span><code><span class="n">df</span> <span class="n">to_parquet</span><span class="p">(</span><span class="s1">&#39;filename.parquet&#39;</span><span class="p">)</span> <span class="c1"># Efficient columnar storage</span>
-<span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;filename.csv&#39;</span><span class="p">)</span> <span class="c1"># Widely compatible format: comma-separated values</span>
-<span class="n">df</span><span class="o">.</span><span class="n">to_excel</span><span class="p">(</span><span class="s1">&#39;filename.xlsx&#39;</span><span class="p">)</span> <span class="c1"># Excel spreadsheet</span>
-</code></pre></div>
-
-<p>Now you are ready to process the data, have fun with your NLP journey!</p>
+<p>Sentiment analysis has become an essential tool in trading, extracting market-moving signals from data sources like news articles. Our News-driven NLP Quant project currently employs two established methods: VADER, a lexicon-based approach, and FinBERT, a financial domain-specific model. With the emergence of sophisticated large language models (LLMs), we must examine whether these advanced systems can surpass traditional techniques in financial sentiment analysis.</p>
+<p>This comparative study analyses three real-world financial news cases to assess the strengths and limitations of each approach. The findings provide actionable insights for practitioners considering sentiment analysis methodologies. For this analysis, we utilised DeepSeek as our test LLM.</p>
+<h2>Comparative Case Analysis</h2>
+<table>
+<thead>
+<tr>
+<th>Approach</th>
+<th></th>
+<th>Case 1</th>
+<th>Case 2</th>
+<th>Case 3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>VADER</strong></td>
+<td>Title sentiment</td>
+<td>0</td>
+<td>0.1531</td>
+<td>-0.4938</td>
+</tr>
+<tr>
+<td></td>
+<td>Summary sentiment</td>
+<td>-0.5106</td>
+<td>-0.2960</td>
+<td>0.3818</td>
+</tr>
+<tr>
+<td><strong>FinBERT</strong></td>
+<td>Title sentiment</td>
+<td>0.9480</td>
+<td>-1</td>
+<td>-1</td>
+</tr>
+<tr>
+<td></td>
+<td>Summary sentiment</td>
+<td>1</td>
+<td>-0.9954</td>
+<td>-1</td>
+</tr>
+<tr>
+<td><strong>DeepSeek</strong></td>
+<td>Title sentiment</td>
+<td>0.35</td>
+<td>-0.65</td>
+<td>-0.70</td>
+</tr>
+<tr>
+<td></td>
+<td>Summary sentiment</td>
+<td>0.60</td>
+<td>-0.55</td>
+<td>-0.45</td>
+</tr>
+</tbody>
+</table>
+<h3>Case 1: Market Reaction to Geopolitical News</h3>
+<p>The article <strong>"Wall Street Rallies as West Hits Russia with New Sanctions"</strong> presented an interesting test case for sentiment analysis. VADER produced a neutral score (0.00) for the title and negative (-0.51) for the summary, failing to capture the market's positive interpretation of events. FinBERT correctly identified positive sentiment with high confidence, while DeepSeek produced scores of +0.35 for the title and +0.60 for the summary. All three methods captured different aspects of the complex sentiment landscape.</p>
+<h3>Case 2: Macroeconomic Downturn Report</h3>
+<p>Analysis of <strong>"Weak Manufacturing Drags Down Q3 GDP Growth"</strong> revealed important differences in approach. VADER produced an unexpected positive score (+0.15) for the negative-leaning headline. FinBERT generated a strongly negative classification, while DeepSeek produced scores of -0.65 for the title and -0.55 for the summary. This case highlights how different methodologies handle gradations in negative sentiment.</p>
+<h3>Case 3: Corporate Earnings Announcement</h3>
+<p>The Zoom earnings report demonstrated the challenges of interpreting mixed financial signals. VADER produced contradictory scores (-0.49 for the title versus +0.38 for the summary). FinBERT consistently classified both components as negative, while DeepSeek provided scores of -0.70 for the title and -0.45 for the summary. This suggests that while transformer-based models may be more consistent than lexicon approaches, they can differ significantly in their interpretation of ambiguous cases.</p>
+<h2>Methodological Comparison</h2>
+<h3>Accuracy and Nuance</h3>
+<p>FinBERT and DeepSeek captured contextual clues that VADER missed. The LLM tended to provide graduated scores (e.g., –0.55 instead of a hard –1), which can be valuable for position sizing.</p>
+<h3>Computational Considerations</h3>
+<p>FinBERT strikes a favorable balance between speed and accuracy, processing documents within milliseconds while maintaining strong domain-specific relevance. VADER offers the fastest processing without requiring a GPU, but at the cost of reduced accuracy. LLMs, while highly capable in this task, typically demand significantly greater computational resources and project budget.</p>
+<h3>Interpretability</h3>
+<p>FinBERT is open-source, allowing inspection of its token-level logits. In contrast, closed-weight LLMs offer limited transparency. However, both FinBERT and LLMs remain largely black-box models compared to the rule-based and inherently interpretable VADER.</p>
+<h2>Practical Recommendations</h2>
+<p>For research baselines and prototyping, FinBERT offers a robust solution, delivering solid accuracy with modest computational overhead. When time and budget permit, with the need for fine-grained sentiment insights, LLMs provide powerful capabilities for deeper analysis. In some cases, a hybrid cascade approach is effective where FinBERT handle the first pass and escalating only complex or ambiguous cases to an LLM for finer interpretation. VADER, while limited in financial nuance, remains useful for rapid prototyping or preliminary checks, especially when GPU resources are unavailable.</p>
+<h2>Conclusion</h2>
+<p>This comparative analysis demonstrates that both LLMs and fine-tuned, smaller models like FinBERT have distinct roles in financial sentiment analysis. While LLMs, as evidenced by articles like Fatouros et al. (2023), excel at processing nuanced financial texts and show superior correlation with market reactions, FinBERT remains indispensable when budget constraints and computational efficiency are critical.</p>
+<p>Future work should focus on developing hybrid approaches that leverage the strengths of both specialised financial models and general-purpose LLMs, along with standardised evaluation frameworks for comparing different sentiment analysis methodologies. The financial NLP community would benefit from continued research into more efficient LLM architectures and a better understanding of how these different approaches complement each other in real-world applications.</p>
+<h2>References</h2>
+<p>Fatouros, G., Soldatos, J., Kouroumali, K., Makridis, G., &amp; Kyriazis, D. (2023)<br>
+Transforming sentiment analysis in the financial domain with ChatGPT.<br>
+Machine Learning with Applications, 12, 100508. <a href="https://doi.org/10.1016/j.mlwa.2023.100508">https://doi.org/10.1016/j.mlwa.2023.100508</a></p>
 
 
              
@@ -154,7 +177,7 @@ async def fetch_data():
         </div>
         <section id="article-sidebar" class="span2">
             <h4>Published</h4>
-            <time itemprop="dateCreated" datetime="2025-03-20T00:00:00+08:00">Thu 20 March 2025</time>
+            <time itemprop="dateCreated" datetime="2025-04-28T00:00:00+08:00">Mon 28 April 2025</time>
             <h4>Category</h4>
             <a class="category-link" href="https://buehlmaier.github.io/FINA4350-student-blog-2025-01/categories.html#reflective-report-ref">Reflective Report</a>
             <h4>Tags</h4>
