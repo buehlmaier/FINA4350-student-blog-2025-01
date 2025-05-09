@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="https://buehlmaier.github.io/FINA4350-student-blog-2025-01/theme/css/elegant.prod.9e9d5ce754.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="https://buehlmaier.github.io/FINA4350-student-blog-2025-01/theme/css/custom.css" media="screen">
+
+        <link rel="dns-prefetch" href="//fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+
+        <meta name="author" content="FINA4350 Students 2025" />
+
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+
+<meta name="keywords" content="Group NLPredict, Reflective Report, " />
+
+<meta property="og:title" content="Blog 2 (by Group &#34;NLPredict&#34;) "/>
+<meta property="og:url" content="https://buehlmaier.github.io/FINA4350-student-blog-2025-01/blog-2-by-group-nlpredict.html" />
+<meta property="og:description" content="Introduction The following blog covers the developmental progress of NLPredict by April 21st 2025 and will explore the various checkpoints, difficulties and breakthroughs our team has made throughout the developmental process. In addition, this blog will also reflect on various mistakes made within NLPredict’s programming as well as various …" />
+<meta property="og:site_name" content="FINA4350 Student Blog 2025" />
+<meta property="og:article:author" content="FINA4350 Students 2025" />
+<meta property="og:article:published_time" content="2025-04-20T20:00:00+08:00" />
+<meta name="twitter:title" content="Blog 2 (by Group &#34;NLPredict&#34;) ">
+<meta name="twitter:description" content="Introduction The following blog covers the developmental progress of NLPredict by April 21st 2025 and will explore the various checkpoints, difficulties and breakthroughs our team has made throughout the developmental process. In addition, this blog will also reflect on various mistakes made within NLPredict’s programming as well as various …">
+
+        <title>Blog 2 (by Group &#34;NLPredict&#34;)  · FINA4350 Student Blog 2025
+</title>
+        <link href="https://buehlmaier.github.io/FINA4350-student-blog-2025-01/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="FINA4350 Student Blog 2025 - Full Atom Feed" />
+
+
+
+    </head>
+    <body>
+        <div id="content">
+            <div class="navbar navbar-static-top">
+                <div class="navbar-inner">
+                    <div class="container-fluid">
+                        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </a>
+                        <a class="brand" href="https://buehlmaier.github.io/FINA4350-student-blog-2025-01/"><span class=site-name>FINA4350 Student Blog 2025</span></a>
+                        <div class="nav-collapse collapse">
+                            <ul class="nav pull-right top-menu">
+                                <li >
+                                    <a href=
+                                       https://buehlmaier.github.io/FINA4350-student-blog-2025-01
+                                    >Home</a>
+                                </li>
+                                <li ><a href="https://buehlmaier.github.io/FINA4350-student-blog-2025-01/categories.html">Categories</a></li>
+                                <li ><a href="https://buehlmaier.github.io/FINA4350-student-blog-2025-01/tags.html">Tags</a></li>
+                                <li ><a href="https://buehlmaier.github.io/FINA4350-student-blog-2025-01/archives.html">Archives</a></li>
+                                <li><form class="navbar-search" action="https://buehlmaier.github.io/FINA4350-student-blog-2025-01/search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid">
+                <div class="row-fluid">
+                    <div class="span1"></div>
+                    <div class="span10">
+<article itemscope>
+<div class="row-fluid">
+    <header class="page-header span10 offset2">
+        <h1>
+            <a href="https://buehlmaier.github.io/FINA4350-student-blog-2025-01/blog-2-by-group-nlpredict.html">
+                Blog 2 (by Group "NLPredict")
+            </a>
+        </h1>
+    </header>
+</div>
+
+<div class="row-fluid">
+        <div class="span8 offset2 article-content">
+            
+            <h1>Introduction</h1>
+<p>The following blog covers the developmental progress of NLPredict by April 21st 2025 and will explore the various checkpoints, difficulties and breakthroughs our team has made throughout the developmental process. In addition, this blog will also reflect on various mistakes made within NLPredict’s programming as well as various challenges that our team has faced outside of the technical aspects of this project.</p>
+<h1>Progress since the Previous Blog</h1>
+<p>Currently our team has finished programming and implementing the final phases of NLPredict’s model, achieving a much higher accuracy in prediction than our initial values. We have also achieved most of our targets in terms of backtesting and evaluating NLPredict’s model, both from an accuracy and efficiency perspective. Our research into the market has been helpful in narrowing down the sources of errors as well as determining whether or not certain stocks and data sources should be included into training the model.</p>
+<p>NLPredict’s model has now incorporated the use of other pieces of financial data such as the Standard and Poor 500’s (S&amp;P 500) historical price, as well as various indices such as the Hang Seng Index (HSI) in order to corroborate and verify the accuracy of NLPredict’s predictions. Initially, there was some discussion as to whether or not this decision would go against the goal of making Natural Language Processing (NLP) and Sentiment Analysis play a more active role in making stock price predictions. However, after a lengthy discussion, it was decided that using other pieces of financial data in support of NLP did not go against the original aim of this project.</p>
+<p>Jason has been researching the market and modern uses of Sentiment Analysis which has helped with determining the effect of market sentiment on the prices of Stocks, as well as recording certain tasks which needed to be done for the project. This was particularly useful when considering short-term price-shocks caused by sudden events or worries (such as natural disasters) to decrease or increase the effects of market sentiment on particular stocks. Using this information as an opportunity, we have also discussed how to deal with such anomalies in the market and our data sources. Initially our team wanted to leave the problem as is, given it was not a problem affecting a large number of stocks. However, after some reconsideration, it was decided to make some minor changes to the model’s data inputs in favor of a more complete final product.</p>
+<p>Herbert has been mostly in charge of programming and fine tuning our model while the rest of our team has been working on backtesting and debugging the model. During this process, we have looked at using different accuracy metrics to determine the validity of NLPredict’s predictions. Ultimately, we have determined that using mainly financial and regression metrics would be the most efficient as it would be the easiest to explain and therefore the most accessible to the wider market.</p>
+<p>A sample of the code we have used can be found below.</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">evaluate_predictions</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">model_type</span><span class="o">=</span><span class="s1">&#39;regression&#39;</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Evaluate predictions with comprehensive metrics&quot;&quot;&quot;</span>
+    <span class="n">metrics</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="k">if</span> <span class="n">model_type</span> <span class="o">==</span> <span class="s1">&#39;regression&#39;</span><span class="p">:</span>
+        <span class="c1"># Regression metrics</span>
+        <span class="n">metrics</span><span class="p">[</span><span class="s1">&#39;mse&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+        <span class="n">metrics</span><span class="p">[</span><span class="s1">&#39;rmse&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">metrics</span><span class="p">[</span><span class="s1">&#39;mse&#39;</span><span class="p">])</span>
+        <span class="n">metrics</span><span class="p">[</span><span class="s1">&#39;mae&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">mean_absolute_error</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+        <span class="n">metrics</span><span class="p">[</span><span class="s1">&#39;r2&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">r2_score</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+
+        <span class="c1"># Financial specific metrics</span>
+        <span class="n">metrics</span><span class="p">[</span><span class="s1">&#39;accuracy_direction&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">((</span><span class="n">y_true</span> <span class="o">*</span> <span class="n">y_pred</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>  <span class="c1"># Direction accuracy</span>
+        <span class="n">metrics</span><span class="p">[</span><span class="s1">&#39;mean_return&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">y_pred</span><span class="p">)</span>
+        <span class="n">metrics</span><span class="p">[</span><span class="s1">&#39;sign_consistency&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sign</span><span class="p">(</span><span class="n">y_pred</span><span class="p">)</span> <span class="o">==</span> <span class="n">np</span><span class="o">.</span><span class="n">sign</span><span class="p">(</span><span class="n">y_true</span><span class="p">))</span>
+
+        <span class="c1"># Risk-adjusted metrics</span>
+        <span class="n">metrics</span><span class="p">[</span><span class="s1">&#39;sharpe&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">y_pred</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">y_pred</span><span class="p">)</span> <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">y_pred</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="mi">0</span>
+
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># Classification metrics</span>
+        <span class="n">metrics</span><span class="p">[</span><span class="s1">&#39;accuracy&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+        <span class="n">metrics</span><span class="p">[</span><span class="s1">&#39;precision&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">precision_score</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">average</span><span class="o">=</span><span class="s1">&#39;binary&#39;</span><span class="p">)</span>
+        <span class="n">metrics</span><span class="p">[</span><span class="s1">&#39;recall&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">recall_score</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">average</span><span class="o">=</span><span class="s1">&#39;binary&#39;</span><span class="p">)</span>
+        <span class="n">metrics</span><span class="p">[</span><span class="s1">&#39;f1&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">f1_score</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">average</span><span class="o">=</span><span class="s1">&#39;binary&#39;</span><span class="p">)</span>
+
+        <span class="c1"># Class balance</span>
+        <span class="n">metrics</span><span class="p">[</span><span class="s1">&#39;positive_ratio&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">y_true</span><span class="p">)</span>
+        <span class="n">metrics</span><span class="p">[</span><span class="s1">&#39;predicted_positive_ratio&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">y_pred</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">metrics</span>
+</code></pre></div>
+
+<p>While initially it seemed that using only two indicators of accuracy was insufficient and that having more indicators would give a more holistic view of the model’s accuracy, in hindsight, it seems that having fewer indicators has aided us in judging whether the model’s predictions were sufficient.</p>
+<p>A key development of the project was the narrowing down of data sources that we have incorporated into the NLPredict’s data input. Initially, NLPredict was taking in data from various sources. However, this came with the problem that there were certain repetitions that were entering its predictions which led it to favour one sentiment in particular. As such, the decision was made to narrow down its data input to be from mainstream sources such as Yahoo Finance, rather than various financial news sources. While this decision was made, it was agreed that it was a temporary solution rather than a permanent one. The team has unanimously recognised that the benefits in an increase in data sources and inputs would far outweigh the demerits. However, it was noted that it would require much more engineering and testing to determine whether or not a data source or input was valuable or useful for NLPredict’s Training and predictions.</p>
+<p>The initial code which uses various sources can be found below with most of the code omitted in order to demonstrate the breadth of sources used. The following list is an example of some of the sources used.</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">get_news_from_finviz</span><span class="p">(</span><span class="n">ticker</span><span class="p">,</span> <span class="n">max_articles</span><span class="o">=</span><span class="mi">40</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Get news from Finviz with robust parsing&quot;&quot;&quot;</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;https://finviz.com/quote.ashx?t=</span><span class="si">{</span><span class="n">ticker</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Fetching news from Finviz: </span><span class="si">{</span><span class="n">url</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">get_news_from_wsj</span><span class="p">(</span><span class="n">ticker</span><span class="p">,</span> <span class="n">max_articles</span><span class="o">=</span><span class="mi">20</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Get news from Wall Street Journal Search&quot;&quot;&quot;</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;https://www.wsj.com/search?query=</span><span class="si">{</span><span class="n">ticker</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Fetching news from WSJ: </span><span class="si">{</span><span class="n">url</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">get_news_from_marketwatch</span><span class="p">(</span><span class="n">ticker</span><span class="p">,</span> <span class="n">max_articles</span><span class="o">=</span><span class="mi">20</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Get news from MarketWatch&quot;&quot;&quot;</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;https://www.marketwatch.com/investing/stock/</span><span class="si">{</span><span class="n">ticker</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Fetching news from MarketWatch: </span><span class="si">{</span><span class="n">url</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">get_news_from_reuters</span><span class="p">(</span><span class="n">company_name</span><span class="p">,</span> <span class="n">max_articles</span><span class="o">=</span><span class="mi">20</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Get news from Reuters&quot;&quot;&quot;</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;https://www.reuters.com/search/news?blob=</span><span class="si">{</span><span class="n">quote_plus</span><span class="p">(</span><span class="n">company_name</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Fetching news from Reuters: </span><span class="si">{</span><span class="n">url</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">get_news_from_bloomberg</span><span class="p">(</span><span class="n">company_name</span><span class="p">,</span> <span class="n">max_articles</span><span class="o">=</span><span class="mi">15</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Get news from Bloomberg (note: might have limited success due to paywall)&quot;&quot;&quot;</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;https://www.bloomberg.com/search?query=</span><span class="si">{</span><span class="n">quote_plus</span><span class="p">(</span><span class="n">company_name</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Fetching news from Bloomberg: </span><span class="si">{</span><span class="n">url</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">get_news_from_financial_times</span><span class="p">(</span><span class="n">ticker</span><span class="p">,</span> <span class="n">company_name</span><span class="p">,</span> <span class="n">max_articles</span><span class="o">=</span><span class="mi">15</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Get news from Financial Times&quot;&quot;&quot;</span>
+    <span class="c1"># Try company name first, then ticker</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;https://www.ft.com/search?q=</span><span class="si">{</span><span class="n">quote_plus</span><span class="p">(</span><span class="n">company_name</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Fetching news from Financial Times: </span><span class="si">{</span><span class="n">url</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+
+<p>After discussion and testing, we have narrowed down the data sources, some of which can be found below.</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">get_news_from_yahoo_finance</span><span class="p">(</span><span class="n">ticker</span><span class="p">,</span> <span class="n">max_articles</span><span class="o">=</span><span class="mi">40</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Get news from Yahoo Finance with robust parsing&quot;&quot;&quot;</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;https://finance.yahoo.com/quote/</span><span class="si">{</span><span class="n">ticker</span><span class="si">}</span><span class="s2">/news&quot;</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Fetching news from Yahoo Finance: </span><span class="si">{</span><span class="n">url</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">get_news_from_bloomberg</span><span class="p">(</span><span class="n">company_name</span><span class="p">,</span> <span class="n">max_articles</span><span class="o">=</span><span class="mi">15</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Get news from Bloomberg (note: might have limited success due to paywall)&quot;&quot;&quot;</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;https://www.bloomberg.com/search?query=</span><span class="si">{</span><span class="n">quote_plus</span><span class="p">(</span><span class="n">company_name</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Fetching news from Bloomberg: </span><span class="si">{</span><span class="n">url</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">get_news_from_financial_times</span><span class="p">(</span><span class="n">ticker</span><span class="p">,</span> <span class="n">company_name</span><span class="p">,</span> <span class="n">max_articles</span><span class="o">=</span><span class="mi">15</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Get news from Financial Times&quot;&quot;&quot;</span>
+    <span class="c1"># Try company name first, then ticker</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;https://www.ft.com/search?q=</span><span class="si">{</span><span class="n">quote_plus</span><span class="p">(</span><span class="n">company_name</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Fetching news from Financial Times: </span><span class="si">{</span><span class="n">url</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+
+<p>Looking forward, some other developments we would like to make would be to incorporate more data types that would accentuate the use of Sentiment Analysis and NLP in stock price predictions. Currently, development on this front has been low due to a lack of ideas regarding such data outside of numerical and historical data. Despite this, the team has been satisfied with the work that was accomplished on this project in the time given.</p>
+
+
+             
+ 
+            
+            
+            
+
+
+
+
+
+
+
+            <hr/>
+        </div>
+        <section id="article-sidebar" class="span2">
+            <h4>Published</h4>
+            <time itemprop="dateCreated" datetime="2025-04-20T20:00:00+08:00">Sun 20 April 2025</time>
+            <h4>Category</h4>
+            <a class="category-link" href="https://buehlmaier.github.io/FINA4350-student-blog-2025-01/categories.html#reflective-report-ref">Reflective Report</a>
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article">
+                <li><a href="https://buehlmaier.github.io/FINA4350-student-blog-2025-01/tags.html#group-nlpredict-ref">Group NLPredict
+                    <span class="superscript">2</span>
+</a></li>
+            </ul>
+<h4>Contact</h4>
+<div id="sidebar-social-link">
+    <a href="https://github.com/buehlmaier/FINA4350-student-blog-2025-01" title="" target="_blank" rel="nofollow noopener noreferrer">
+        <svg xmlns="http://www.w3.org/2000/svg" aria-label="GitHub" role="img" viewBox="0 0 512 512"><rect width="512" height="512" rx="15%" fill="#1B1817"/><path fill="#fff" d="M335 499c14 0 12 17 12 17H165s-2-17 12-17c13 0 16-6 16-12l-1-50c-71 16-86-28-86-28-12-30-28-37-28-37-24-16 1-16 1-16 26 2 40 26 40 26 22 39 59 28 74 22 2-17 9-28 16-35-57-6-116-28-116-126 0-28 10-51 26-69-3-6-11-32 3-67 0 0 21-7 70 26 42-12 86-12 128 0 49-33 70-26 70-26 14 35 6 61 3 67 16 18 26 41 26 69 0 98-60 120-117 126 10 8 18 24 18 48l-1 70c0 6 3 12 16 12z"/></svg>
+    </a>
+</div>
+            
+
+
+
+
+
+            
+
+
+
+
+
+        </section>
+</div>
+</article>
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe.
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides.
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo https://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                    </div>
+                    <div class="span1"></div>
+                </div>
+            </div>
+        </div>
+<footer>
+
+
+
+
+    <div id="fpowered">
+        Powered by: <a href="http://getpelican.com/" title="Pelican Home Page" target="_blank" rel="nofollow noopener noreferrer">Pelican</a>
+        Theme: <a href="https://elegant.oncrashreboot.com/" title="Theme Elegant Home Page" target="_blank" rel="nofollow noopener noreferrer">Elegant</a>
+    </div>
+</footer>            <script src="//code.jquery.com/jquery.min.js"></script>
+        <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+        <script src="https://buehlmaier.github.io/FINA4350-student-blog-2025-01/theme/js/elegant.prod.9e9d5ce754.js"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+
+    <script>
+    (function () {
+        if (window.location.hash.match(/^#comment-\d+$/)) {
+            $('#comment_thread').collapse('show');
+        }
+    })();
+    window.onhashchange=function(){
+        if (window.location.hash.match(/^#comment-\d+$/))
+            window.location.reload(true);
+    }
+    $('#comment_thread').on('shown', function () {
+        var link = document.getElementById('comment-accordion-toggle');
+        var old_innerHTML = link.innerHTML;
+        $(link).fadeOut(200, function() {
+            $(this).text('Click here to hide comments').fadeIn(200);
+        });
+        $('#comment_thread').on('hidden', function () {
+            $(link).fadeOut(200, function() {
+                $(this).text(old_innerHTML).fadeIn(200);
+            });
+        })
+    })
+</script>
+
+    </body>
+    <!-- Theme: Elegant built for Pelican
+        License : MIT -->
+</html>
