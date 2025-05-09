@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="https://buehlmaier.github.io/FINA4350-student-blog-2025-01/theme/css/elegant.prod.9e9d5ce754.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="https://buehlmaier.github.io/FINA4350-student-blog-2025-01/theme/css/custom.css" media="screen">
+
+        <link rel="dns-prefetch" href="//fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+
+        <meta name="author" content="FINA4350 Students 2025" />
+
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+
+<meta name="keywords" content="Group FinBlazers, Reflective Report, " />
+
+<meta property="og:title" content="Public Sentiment and Tesla Sales in 2022: An Integrated Analysis of News and Twitter Data "/>
+<meta property="og:url" content="https://buehlmaier.github.io/FINA4350-student-blog-2025-01/public-sentiment-and-tesla-sales-in-2022-an-integrated-analysis-of-news-and-twitter-data.html" />
+<meta property="og:description" content="Public Sentiment and Tesla Sales in 2022: An Integrated Analysis of News and Twitter Data 1. Introduction What drives people to buy a Tesla? Is it the technology? The brand? Or could it be the stories we read and the tweets we scroll through? In today’s hyper-connected world, sentiment …" />
+<meta property="og:site_name" content="FINA4350 Student Blog 2025" />
+<meta property="og:article:author" content="FINA4350 Students 2025" />
+<meta property="og:article:published_time" content="2025-05-04T00:00:00+08:00" />
+<meta name="twitter:title" content="Public Sentiment and Tesla Sales in 2022: An Integrated Analysis of News and Twitter Data ">
+<meta name="twitter:description" content="Public Sentiment and Tesla Sales in 2022: An Integrated Analysis of News and Twitter Data 1. Introduction What drives people to buy a Tesla? Is it the technology? The brand? Or could it be the stories we read and the tweets we scroll through? In today’s hyper-connected world, sentiment …">
+
+        <title>Public Sentiment and Tesla Sales in 2022: An Integrated Analysis of News and Twitter Data  · FINA4350 Student Blog 2025
+</title>
+        <link href="https://buehlmaier.github.io/FINA4350-student-blog-2025-01/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="FINA4350 Student Blog 2025 - Full Atom Feed" />
+
+
+
+    </head>
+    <body>
+        <div id="content">
+            <div class="navbar navbar-static-top">
+                <div class="navbar-inner">
+                    <div class="container-fluid">
+                        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </a>
+                        <a class="brand" href="https://buehlmaier.github.io/FINA4350-student-blog-2025-01/"><span class=site-name>FINA4350 Student Blog 2025</span></a>
+                        <div class="nav-collapse collapse">
+                            <ul class="nav pull-right top-menu">
+                                <li >
+                                    <a href=
+                                       https://buehlmaier.github.io/FINA4350-student-blog-2025-01
+                                    >Home</a>
+                                </li>
+                                <li ><a href="https://buehlmaier.github.io/FINA4350-student-blog-2025-01/categories.html">Categories</a></li>
+                                <li ><a href="https://buehlmaier.github.io/FINA4350-student-blog-2025-01/tags.html">Tags</a></li>
+                                <li ><a href="https://buehlmaier.github.io/FINA4350-student-blog-2025-01/archives.html">Archives</a></li>
+                                <li><form class="navbar-search" action="https://buehlmaier.github.io/FINA4350-student-blog-2025-01/search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid">
+                <div class="row-fluid">
+                    <div class="span1"></div>
+                    <div class="span10">
+<article itemscope>
+<div class="row-fluid">
+    <header class="page-header span10 offset2">
+        <h1>
+            <a href="https://buehlmaier.github.io/FINA4350-student-blog-2025-01/public-sentiment-and-tesla-sales-in-2022-an-integrated-analysis-of-news-and-twitter-data.html">
+                Public Sentiment and Tesla Sales in 2022: An Integrated Analysis of News and Twitter Data
+            </a>
+        </h1>
+    </header>
+</div>
+
+<div class="row-fluid">
+        <div class="span8 offset2 article-content">
+            
+            <h1>Public Sentiment and Tesla Sales in 2022: An Integrated Analysis of News and Twitter Data</h1>
+<h3>1. Introduction</h3>
+<p>What drives people to buy a Tesla? Is it the technology? The brand? Or could it be the stories we read and the tweets we scroll through? In today’s hyper-connected world, sentiment—both from traditional media and social platforms—can ripple through public consciousness and sway consumer behavior in ways we’re only beginning to understand. This blog post brings together three interconnected studies that explore how sentiment, expressed in news headlines and Elon Musk’s tweets, may influence Tesla’s monthly sales in 2022. Rather than examining these elements in isolation, we took a layered approach, building one analysis atop the next to uncover patterns that are both statistically significant and narratively compelling. We began by comparing two sentiment analysis techniques, VADER and a transformer-basedmodel, to evaluate how well financial news sentiment aligned with Tesla’s actual sales. Then, we turned to Elon Musk’s Twitter activity, analyzing his tone, language, and timing to see whether his tweets could signal market shifts or consumer behavior. Finally, we fused bothsentiment streams, news and social media, into a predictive neural network model, testing whether this multimodal input could accurately forecast Tesla’s monthly performance. This project is not only about Tesla, but also about the growing power of digital sentiment and its real-world impact. As you read on, we invite you to think critically about how perception and data intertwine, and what this might mean for companies, consumers, and markets in the years ahead.</p>
+<h3>2. Tesla News Sentiment and Sales Correlation Analysis: A Comparative Methodology Study</h3>
+<h4>2.1 Data Acquisition and Cleaning</h4>
+<p>Our analysis begins with the foundation of all natural language processing (NLP) projects: data curation and cleaning. We sourced two primary datasets, which contain 764 Tesla-related news articles from various reputable outlets published throughout 2022, and the company’s official monthly vehicle sales figures for the same year. Each news article entry includes metadata such as the publication date, source, title, and full text content, allowing for both temporal alignment and sentiment analysis.</p>
+<p>The raw text data, as expected, required significant preprocessing before any analysis could take place. We applied a sequence of standard NLP cleaning steps, including removal of
+special characters, lowercasing, tokenization, stopword removal, and lemmatization. These steps distilled the textual data into cleaner, more meaningful linguistic units that were easier to analyze computationally. For instance, the pipeline included functions such as:</p>
+<div class="highlight"><pre><span></span><code><span class="n">news_df</span><span class="p">[</span><span class="s1">&#39;text_clean&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">news_df</span><span class="p">[</span><span class="s1">&#39;content&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">clean_text</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="n">news_df</span><span class="p">[</span><span class="s1">&#39;tokens&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">news_df</span><span class="p">[</span><span class="s1">&#39;text_clean&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">word_tokenize</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="n">news_df</span><span class="p">[</span><span class="s1">&#39;tokens&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">news_df</span><span class="p">[</span><span class="s1">&#39;tokens&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span>
+    <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">[</span><span class="n">lemmatizer</span><span class="o">.</span><span class="n">lemmatize</span><span class="p">(</span><span class="n">w</span><span class="p">)</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">x</span> <span class="k">if</span> <span class="n">w</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">stop_words</span><span class="p">])</span>
+</code></pre></div>
+
+<p>After cleaning, we conducted exploratory text analysis to understand the underlying themes within the news corpus. Word frequency plots and word clouds revealed dominant terms like “Tesla,” “Musk,” “electric,” and “vehicle.” We also explored bigram patterns—common two-word combinations, such as “Elon Musk” and “electric vehicle,” which highlighted key
+narrative motifs consistently echoed across various articles. These preliminary insights laid the groundwork for our subsequent sentiment analysis and correlation studies.</p>
+<h4>2.2 Sentiment Analysis Models</h4>
+<p>To quantify the emotional tone of news coverage surrounding Tesla, we employed two contrasting sentiment analysis models, each selected for its unique strengths and
+methodological perspective. The first is <strong>VADER (Valence Aware Dictionary and sEntiment Reasoner)</strong> , a rule-based model widely used for its simplicity and effectiveness in analyzing short texts, particularly from social media. VADER produces a compound score ranging from -1 (extremely negative) to +1 (extremely positive), summarizing the emotional valence of a given passage. While not specifically tailored to financial contexts, its interpretability and ease of implementation make it a useful baseline. After applying VADER to each news article, we aggregated the monthly sentiment scores and aligned them with Tesla’s corresponding sales data. This allowed us to assess whether a correlation exists between media tone and real-world commercial outcomes. To complement and contrast with VADER’s general-purpose approach, we incorporated a more sophisticated deep learning model, <strong>DistilRoBERTa, fine-tuned on financial news data</strong>. This transformer-based model leverages contextual embeddings to understand nuanced financial language, providing sentiment scores across three categories: positive, negative, and neutral. It is particularly well-suited for the type of long-form, domain-specific text found in news articles about Tesla.</p>
+<p>Given the limitation of transformer models (especially those based on BERT architectures) regarding input length, we implemented a chunking strategy to process full articles. The method involves splitting each article into segments of no more than 512 tokens—BERT’s maximum input length—and passing each chunk through the model individually. Predictions are then aggregated to produce a single sentiment classification for the article. The procedure is summarized in the following function:</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">chunk_and_predict</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+    <span class="n">chunks</span> <span class="o">=</span> <span class="n">split_text_into_chunks</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">max_len</span><span class="o">=</span><span class="mi">512</span><span class="p">)</span>
+    <span class="n">predictions</span> <span class="o">=</span> <span class="p">[</span><span class="n">model</span><span class="p">(</span><span class="n">chunk</span><span class="p">)</span> <span class="k">for</span> <span class="n">chunk</span> <span class="ow">in</span> <span class="n">chunks</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">aggregate_predictions</span><span class="p">(</span><span class="n">predictions</span><span class="p">)</span>
+</code></pre></div>
+
+<p>This dual-model approach not only improves robustness but also allows us to reflect on the methodological trade-offs between rule-based and deep learning sentiment systems.
+Comparing their outputs enabled a richer exploration of how sentiment varies across time—and how these variations might relate to consumer behavior and Tesla’s monthly sales performance.</p>
+<h4>2.3 Findings</h4>
+<p>The application of both sentiment models yielded valuable insights into the tone and potential market impact of Tesla-related news coverage in 2022.</p>
+<p><strong>2.3.1 Sentiment Distribution:</strong>
+VADER, true to its design for capturing overt sentiment cues in short text, labeled the news corpus as overwhelmingly positive—83.2% of articles were rated as positive, 16.6% negative, and a negligible 0.1% neutral. In contrast, the DistilRoBERTa model offered a more nuanced picture: only 30.0% of news pieces were classified as positive, while 37.4% were negative and 32.6% neutral. This divergence reflects the model’s financial fine-tuning, which may better capture subtleties such as cautious optimism or veiled skepticism in journalistic language.</p>
+<p><strong>2.3.2 Temporal Trends:</strong>
+Monthly sentiment patterns revealed some convergence and divergence between the models. Both identified <strong>July</strong> as a period of particularly negative coverage, it is likely related to broader macroeconomic turbulence and company-specific controversies. However, VADER marked <strong>March</strong> as the most optimistic month, perhaps due to positive earnings reports or vehicle delivery milestones, whereas the Transformer model remained more conservative in its assessments throughout the year.</p>
+<p><strong>2.3.3 Correlation with Sales:</strong>
+To evaluate the predictive utility of sentiment, we computed Pearson correlation coefficients between sentiment scores and Tesla’s monthly vehicle sales, including simple sales figures as well as 3-month and 6-month moving averages (MA):</p>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>VADER (r)</th>
+<th>Transformer (r)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Same-month sales</td>
+<td><strong>0.511</strong></td>
+<td>0.000</td>
+</tr>
+<tr>
+<td>3-month MA sales</td>
+<td>0.339</td>
+<td>0.000</td>
+</tr>
+<tr>
+<td>6-month MA sales</td>
+<td>-0.010</td>
+<td>-0.000</td>
+</tr>
+</tbody>
+</table>
+<p>VADER’s stronger correlation with same-month sales suggests that surface-level sentiment polarity—captured through lexicon-based rules—may more directly reflect short-term shifts
+in consumer and investor enthusiasm. On the other hand, the Transformer’s weaker and even negative correlation with longer-term trends could point to its heightened sensitivity to neutral or mixed sentiments, which may not translate neatly into immediate commercial outcomes.</p>
+<p><strong>2.3.4 Visualizations and Interpretations:</strong>
+We complemented our quantitative findings with a range of visual tools. <strong>Stacked bar charts</strong> illustrated monthly sentiment distributions, <strong>heatmaps</strong> mapped sentiment-sales correlations over time, and <strong>overlay plots</strong> juxtaposed sentiment trajectories against actual Tesla sales. Together, these visuals reinforced the idea that while sentiment provides a valuable signal, its interpretability and predictive power vary significantly depending on the model employed and the time frame considered.</p>
+<h3>3. Public Sentiment and Twitter Activity Analysis: Elon Musk’s Communication in 2022</h3>
+<h4>3.1 Dataset and Preparation</h4>
+<p>Elon Musk’s prolific Twitter presence represents a unique and direct channel of corporate communication—one that often bypasses traditional public relations mechanisms. In this
+section, we analyze 5,390 tweets posted by Musk throughout 2022, focusing on how his messaging style, tone, and frequency relate to public sentiment and possibly Tesla’s commercial outcomes.</p>
+<p>The dataset, retrieved through Twitter’s API, includes timestamps, tweet content, and engagement metrics. We first standardized the date format and derived a monthly indicator to align his Twitter activity with Tesla’s monthly sales data:</p>
+<div class="highlight"><pre><span></span><code><span class="n">elon_df</span><span class="p">[</span><span class="s1">&#39;created_at&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">elon_df</span><span class="p">[</span><span class="s1">&#39;created_at&#39;</span><span class="p">])</span>
+<span class="n">elon_df</span><span class="p">[</span><span class="s1">&#39;month&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">elon_df</span><span class="p">[</span><span class="s1">&#39;created_at&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">to_period</span><span class="p">(</span><span class="s1">&#39;M&#39;</span><span class="p">)</span>
+</code></pre></div>
+
+<h4>3.2 Text Cleaning and Preprocessing:</h4>
+<p>Given the informal and often idiosyncratic nature of tweets, preprocessing required more than the typical NLP pipeline. Our goal was to preserve meaning while filtering out noise,
+especially from platform-specific artifacts. The cleaning process involved:</p>
+<ul>
+<li>Decoding HTML entities for accurate semantic representation.</li>
+<li>Removing retweet indicators ("RT") and quoted tweets to focus on Musk’s original messaging.</li>
+<li>Translating emojis into text to retain sentiment nuances often lost in raw text analysis.</li>
+<li>Stripping URLs, mentions, and hashtags—elements which rarely carry analyzable sentiment.</li>
+<li>Lowercasing and trimming excessive whitespace for consistency.</li>
+<li>Removing stopwords selectively (while retaining converted emoji descriptions).</li>
+</ul>
+<p>The implementation reflects these steps:</p>
+<div class="highlight"><pre><span></span><code><span class="n">df</span><span class="p">[</span><span class="s1">&#39;clean_text&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;text&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span>
+<span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;http\S+|@\S+|#[^\s]+&quot;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">x</span><span class="p">))</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;clean_text&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;clean_text&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span>
+<span class="n">demojize</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span>
+</code></pre></div>
+
+<p>This refined dataset serves as the basis for our subsequent sentiment analysis and linguistic pattern extraction, allowing us to investigate how Musk’s communication evolved over time and whether it aligned with broader media sentiment or sales dynamics.</p>
+<h4>3.3 Key Results</h4>
+<p><strong>3.3.1 Tweet Frequency Over Time:</strong>
+Elon Musk’s Twitter activity in 2022 exhibited striking fluctuations. Until mid-year, his monthly tweet count remained relatively stable. However, a dramatic surge occurred in
+November and December—exceeding 1,000 tweets per month—coinciding with his acquisition of Twitter. While the tweets were not necessarily Tesla-related, this escalation in
+online presence reflects a shift in public attention and may have had indirect implications for Tesla’s brand visibility and investor sentiment. Earlier, subtler spikes in activity appear to align with major Tesla announcements, hinting at possible synchrony between Musk’s communication patterns and the company’s corporate events.</p>
+<p><strong>3.3.2 Tesla Content Ratio:</strong>
+Surprisingly, fewer than 6% of Musk’s tweets in 2022 explicitly mentioned Tesla or its products. This low frequency suggests that while Musk is the face of Tesla, much of his online engagement is directed elsewhere—toward space exploration, cryptocurrency, AI, or sociopolitical commentary. Nevertheless, the gravitational pull of his personal brand ensures that even non-Tesla tweets may indirectly shape public perception of the company.</p>
+<p><strong>3.3.3 Sentiment Distribution:</strong>
+Using the VADER sentiment model, we categorized the tone of Musk’s tweets across the year. The distribution was relatively neutral overall, with:</p>
+<ul>
+<li>39% classified as <strong>positive</strong></li>
+<li>47% as <strong>neutral</strong></li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="n">elon_df</span><span class="p">[</span><span class="s1">&#39;sentiment&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">elon_df</span><span class="p">[</span><span class="s1">&#39;clean_text&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span>
+<span class="n">analyzer</span><span class="o">.</span><span class="n">polarity_scores</span><span class="p">(</span><span class="n">x</span><span class="p">)[</span><span class="s1">&#39;compound&#39;</span><span class="p">])</span>
+</code></pre></div>
+
+<p>This predominance of neutral or mildly positive tone may reflect Musk’s calculated communication strategy—assertive but rarely overtly negative—designed to maintain engagement without excessive controversy, at least in the textual tone.</p>
+<p><strong>3.3.4 Linguistic Patterns:</strong>
+Bigram analysis provided further insight into the language Musk used most frequently. Common two-word phrases such as <em>"fire hire"</em> , <em>"free speech"</em> , and <em>"launch falcon"</em> hint at thematic clusters: internal staffing dynamics (often controversial), advocacy of open discourse (especially post-Twitter acquisition), and SpaceX-related updates. These linguistic patterns reflect the multidimensional nature of Musk’s digital persona and suggest that sentiment interpretation must be context-aware.</p>
+<h4>3.4 Visualizations</h4>
+<p>The visualization suite serves not merely as a summary of tweet activity, but as a lens into Elon Musk’s shifting communicative focus and its potential resonance with public sentiment.</p>
+<p><strong>3.4.1 Monthly Tweet Volumes:</strong>
+A time series plot of tweet frequency vividly illustrates the escalation in late 2022, where tweet counts more than doubled compared to earlier months. The timing—immediately
+following the finalization of the Twitter acquisition—suggests a redirection of Musk’s attention from Tesla to broader platform governance and social discourse.</p>
+<p><strong>3.4.2 Tesla vs. Non-Tesla Tweet Ratio:</strong>
+A categorical breakdown reveals a surprisingly low proportion of Tesla-related content. Less than 6% of all tweets in 2022 mentioned Tesla, reinforcing the notion that Musk's personal
+brand operates in a larger ecosystem than Tesla alone. This raises interesting questions about how audiences conflate Musk’s identity with the companies he leads—often with limited
+explicit cues.</p>
+<p><strong>3.4.3 Sentiment Breakdown Over Time:</strong>
+Stacked bar charts illustrate a predominance of neutral sentiment throughout the year, punctuated by spikes in positivity or negativity during key events. Notably, the emotional tone remained remarkably stable even during periods of high tweet volume, such as the Twitter acquisition period. This supports earlier findings that, while prolific, Musk’s language does not oscillate dramatically in sentiment—at least from a lexical standpoint. Together, these visual elements provide both macro- and micro-level perspectives on how Musk communicated during 2022, and establish a foundation for understanding how public-facing CEO activity intersects with brand sentiment and potentially with sales dynamics.</p>
+<h2>4. Public Sentiment and Tesla Sales Prediction (2022): Integrating News and Social Media Analysis</h2>
+<p>Having analyzed news and Twitter sentiment independently, we turned to their <strong>combined predictive power</strong>. This phase aimed to explore whether sentiment data—originating from media outlets and Elon Musk’s Twitter account—could be used to <strong>forecast Tesla’s monthly vehicle sales</strong> for 2022.</p>
+<h4>4.1 Data preprocessing</h4>
+<p>To prepare the data for analysis, we executed the following steps:</p>
+<ol>
+<li><strong>Date Normalization</strong> : Standardized date formats across both datasets to enable chronological
+    analysis and monthly aggregation.</li>
+<li><strong>Sentiment Analysis</strong> : Applied the finiteautomata/ bertweet-base-sentiment-analysis model to both news articles and tweets to extract sentiment scores</li>
+<li><strong>Batch Processing</strong> : Implemented batch processing to optimize computational efficiency when analyzing the large volume of texts (&gt;6,000 combined articles and tweets).</li>
+<li><strong>Engagement Weighting</strong> : For tweets, we calculated an engagement score so the weighted sentiment was computed by multiplying the raw sentiment score by the engagement score, giving greater importance to tweets with higher public interaction.</li>
+</ol>
+<h4>4.2 Feature Engineering &amp; Aggregation</h4>
+<p><strong>4.2.1 Monthly Aggregation:</strong>
+Since Tesla reports its sales on a monthly basis, we also aggregated our sentiment and engagement data for news articles and twitter posts by month to ensure alignment. To engineered the following features monthly:</p>
+<p>● <strong>Mean and standard deviation of sentiment scores:</strong> These summarize the overall tone and variability of the data each month.
+● <strong>Sum and mean of positive, negative, and neutral sentiment scores</strong>
+● <strong>Article and Tweet volume</strong></p>
+<p>By aggregating these features by month, we created a comprehensive dataset that captures both the tone and reach of media and social buzz around Tesla.</p>
+<p><strong>4.2.2 Feature Scaling:</strong>
+Before feeding these features into our neural network, we normalized all values using a MinMaxScaler. This technique scales every feature to a common range (typically 0 to 1), which is important because it prevents features with larger absolute values from dominating the learning process. Proper scaling ensures that each feature contributes proportionally to the model’s training.</p>
+<h4>4.3 Training Methodology</h4>
+<p>We used the first six months of 2022 (January-June) as our training set and the remaining six months (July-December) as our test set. This chronological split reflects real-world forecasting scenarios where past data predicts future outcomes.</p>
+<h4>4.4 Evaluation and Findings</h4>
+<p>We evaluated the models using <strong>MAPE</strong> , <strong>RMSE</strong> , and <strong>R²</strong> scores:</p>
+<p><strong>Metric Initial Model Improved Model</strong></p>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>VADER</th>
+<th>Transformer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RMSE</td>
+<td>37,474.27</td>
+<td>7,639.</td>
+</tr>
+<tr>
+<td>R² Score</td>
+<td>-68.61</td>
+<td>-1.</td>
+</tr>
+<tr>
+<td>MAPE</td>
+<td>55.77%</td>
+<td>16.36%</td>
+</tr>
+</tbody>
+</table>
+<p>For the initial model, the training loss curve showed rapid initial convergence followed by plateau, indicating the model quickly learned patterns in the training data but failed to generalize to test data. Also, the initial model's predictions drastically overestimated September 2022 sales (126,783 vs. actual 37,518) while underestimating other months. The enhanced model showed substantial improvement. while the R² score remained negative, indicating the model still doesn't outperform a simple mean-based prediction, the dramatically reduced MAPE and RMSE suggest meaningful progress. The improved predictions tracked actual sales trends more closely, particularly for October-November 2022.</p>
+<h3>5. Insights and Strategic Implications from Sentiment-Sales Dynamics</h3>
+<p>This study reveals several important insights at the intersection of sentiment analysis, executive communication, and market behavior. By synthesizing results across models and data sources, we can draw meaningful conclusions about how sentiment correlates with commercial outcomes and where analytical approaches can be refined for strategic advantage.</p>
+<h4>5.1 News Sentiment Exhibits Stronger Alignment with Sales</h4>
+<p>Contrary to the prevailing emphasis on social media in recent years, our findings indicate that <strong>news sentiment shows a more immediate and stable relationship with sales data</strong> , particularly in the short term. This suggests that <strong>established media sources continue to shape consumer perceptions in significant ways</strong> , likely due to their perceived authority and depth of analysis. The temporal proximity of sentiment shifts in news to fluctuations in sales underscores the continued influence of traditional journalism in shaping economic behavior.</p>
+<h4>5.2 Transformer-Based Models Provide Superior Analytical Depth</h4>
+<p>The comparison between lexicon-based models (e.g., VADER) and domain-specific transformer architectures (e.g., FinBERT) yielded a clear outcome: <strong>transformer models consistently delivered more contextually relevant and accurate sentiment evaluations</strong>. Their ability to account for semantic nuance, domain-specific language, and sentiment embedded in complex grammatical structures makes them more effective tools for capturing actionable emotional tone. These models are especially valuable when working with financial or technical corpora, where traditional methods tend to oversimplify sentiment polarity.</p>
+<h4>5.3 Executive Messaging as a Stabilizing Sentiment Factor</h4>
+<p>Elon Musk’s Twitter content, while thematically diverse, maintained a <strong>remarkably consistent positive tone throughout both stable and turbulent periods</strong>. This consistency may serve a strategic function—providing investors and consumers with a sense of continuity and confidence, even in the face of operational or reputational volatility. From a communications perspective, this highlights the <strong>growing importance of executive social media as a reputational buffer</strong> and an informal mechanism of market signaling.</p>
+<h4>5.4 Toward Time-Aware, Multi-Source Predictive Models</h4>
+<p>Finally, when sentiment from both news and social media was integrated into a <strong>time-aware modeling framework</strong> , the results demonstrated enhanced predictive power regarding market behavior. This underscores the value of <strong>multimodal sentiment integration</strong> and <strong>temporal sensitivity</strong> in forecasting frameworks. The implications are far-reaching: such models may be leveraged not only for consumer behavior analysis but also for investor sentiment tracking, risk assessment, and strategic decision-making.</p>
+<h3>6. Conclusion</h3>
+<p>This study offers a comprehensive exploration of the complex relationship between public sentiment and Tesla’s commercial outcomes during 2022. By comparing various sentiment analysis approaches and integrating them into a deep learning framework for sales prediction, we underscore the critical importance of methodological precision in sentiment-based market forecasting.</p>
+<p>Our findings reaffirm the significant, though often indirect, influence of Elon Musk’s personal communication on public sentiment, despite relatively limited Tesla-branded content on Twitter. The consistent tone of his posts may serve as an implicit signal to markets, adding a layer of interpretive complexity to executive social media behavior. Looking ahead, future research could benefit from broadening the scope of sentiment sources (e.g., Reddit threads, investor discussion forums, YouTube commentary), extending the temporal range, and further refining multimodal, time-aware modeling architectures. These directions offer promising potential to enhance both predictive accuracy and interoperability.</p>
+<p>Overall, this work provides a solid foundation for <strong>integrating linguistic, temporal, and financial data</strong> in understanding and anticipating behavior in tech-driven markets. It contributes to a growing body of research at the intersection of natural language processing, behavioral economics, and data-driven decision-making.</p>
+
+
+             
+ 
+            
+            
+            
+
+
+
+
+
+
+
+            <hr/>
+        </div>
+        <section id="article-sidebar" class="span2">
+            <h4>Published</h4>
+            <time itemprop="dateCreated" datetime="2025-05-04T00:00:00+08:00">Sun 04 May 2025</time>
+            <h4>Category</h4>
+            <a class="category-link" href="https://buehlmaier.github.io/FINA4350-student-blog-2025-01/categories.html#reflective-report-ref">Reflective Report</a>
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article">
+                <li><a href="https://buehlmaier.github.io/FINA4350-student-blog-2025-01/tags.html#group-finblazers-ref">Group FinBlazers
+                    <span class="superscript">3</span>
+</a></li>
+            </ul>
+<h4>Contact</h4>
+<div id="sidebar-social-link">
+    <a href="https://github.com/buehlmaier/FINA4350-student-blog-2025-01" title="" target="_blank" rel="nofollow noopener noreferrer">
+        <svg xmlns="http://www.w3.org/2000/svg" aria-label="GitHub" role="img" viewBox="0 0 512 512"><rect width="512" height="512" rx="15%" fill="#1B1817"/><path fill="#fff" d="M335 499c14 0 12 17 12 17H165s-2-17 12-17c13 0 16-6 16-12l-1-50c-71 16-86-28-86-28-12-30-28-37-28-37-24-16 1-16 1-16 26 2 40 26 40 26 22 39 59 28 74 22 2-17 9-28 16-35-57-6-116-28-116-126 0-28 10-51 26-69-3-6-11-32 3-67 0 0 21-7 70 26 42-12 86-12 128 0 49-33 70-26 70-26 14 35 6 61 3 67 16 18 26 41 26 69 0 98-60 120-117 126 10 8 18 24 18 48l-1 70c0 6 3 12 16 12z"/></svg>
+    </a>
+</div>
+            
+
+
+
+
+
+            
+
+
+
+
+
+        </section>
+</div>
+</article>
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe.
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides.
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo https://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                    </div>
+                    <div class="span1"></div>
+                </div>
+            </div>
+        </div>
+<footer>
+
+
+
+
+    <div id="fpowered">
+        Powered by: <a href="http://getpelican.com/" title="Pelican Home Page" target="_blank" rel="nofollow noopener noreferrer">Pelican</a>
+        Theme: <a href="https://elegant.oncrashreboot.com/" title="Theme Elegant Home Page" target="_blank" rel="nofollow noopener noreferrer">Elegant</a>
+    </div>
+</footer>            <script src="//code.jquery.com/jquery.min.js"></script>
+        <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+        <script src="https://buehlmaier.github.io/FINA4350-student-blog-2025-01/theme/js/elegant.prod.9e9d5ce754.js"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+
+    <script>
+    (function () {
+        if (window.location.hash.match(/^#comment-\d+$/)) {
+            $('#comment_thread').collapse('show');
+        }
+    })();
+    window.onhashchange=function(){
+        if (window.location.hash.match(/^#comment-\d+$/))
+            window.location.reload(true);
+    }
+    $('#comment_thread').on('shown', function () {
+        var link = document.getElementById('comment-accordion-toggle');
+        var old_innerHTML = link.innerHTML;
+        $(link).fadeOut(200, function() {
+            $(this).text('Click here to hide comments').fadeIn(200);
+        });
+        $('#comment_thread').on('hidden', function () {
+            $(link).fadeOut(200, function() {
+                $(this).text(old_innerHTML).fadeIn(200);
+            });
+        })
+    })
+</script>
+
+    </body>
+    <!-- Theme: Elegant built for Pelican
+        License : MIT -->
+</html>
