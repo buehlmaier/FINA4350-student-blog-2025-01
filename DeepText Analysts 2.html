@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="https://buehlmaier.github.io/FINA4350-student-blog-2025-01/theme/css/elegant.prod.9e9d5ce754.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="https://buehlmaier.github.io/FINA4350-student-blog-2025-01/theme/css/custom.css" media="screen">
+
+        <link rel="dns-prefetch" href="//fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+
+        <meta name="author" content="FINA4350 Students 2025" />
+
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+
+<meta name="keywords" content="Group: DeepText Analysts, Reflective Report, " />
+
+<meta property="og:title" content="Decoding Crypto Volatility: A New Direction "/>
+<meta property="og:url" content="https://buehlmaier.github.io/FINA4350-student-blog-2025-01/DeepText Analysts 2.html" />
+<meta property="og:description" content="Our New Direction As we progressed from the initial phase of our project, we began with the goal of developing a model to predict cryptocurrency prices. However, we encountered several challenges that highlighted the limitations of this approach, which included the objective definition of sentiment, whether correlation necessarily exists between …" />
+<meta property="og:site_name" content="FINA4350 Student Blog 2025" />
+<meta property="og:article:author" content="FINA4350 Students 2025" />
+<meta property="og:article:published_time" content="2025-05-06T23:59:00+08:00" />
+<meta name="twitter:title" content="Decoding Crypto Volatility: A New Direction ">
+<meta name="twitter:description" content="Our New Direction As we progressed from the initial phase of our project, we began with the goal of developing a model to predict cryptocurrency prices. However, we encountered several challenges that highlighted the limitations of this approach, which included the objective definition of sentiment, whether correlation necessarily exists between …">
+
+        <title>Decoding Crypto Volatility: A New Direction  · FINA4350 Student Blog 2025
+</title>
+        <link href="https://buehlmaier.github.io/FINA4350-student-blog-2025-01/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="FINA4350 Student Blog 2025 - Full Atom Feed" />
+
+
+
+    </head>
+    <body>
+        <div id="content">
+            <div class="navbar navbar-static-top">
+                <div class="navbar-inner">
+                    <div class="container-fluid">
+                        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </a>
+                        <a class="brand" href="https://buehlmaier.github.io/FINA4350-student-blog-2025-01/"><span class=site-name>FINA4350 Student Blog 2025</span></a>
+                        <div class="nav-collapse collapse">
+                            <ul class="nav pull-right top-menu">
+                                <li >
+                                    <a href=
+                                       https://buehlmaier.github.io/FINA4350-student-blog-2025-01
+                                    >Home</a>
+                                </li>
+                                <li ><a href="https://buehlmaier.github.io/FINA4350-student-blog-2025-01/categories.html">Categories</a></li>
+                                <li ><a href="https://buehlmaier.github.io/FINA4350-student-blog-2025-01/tags.html">Tags</a></li>
+                                <li ><a href="https://buehlmaier.github.io/FINA4350-student-blog-2025-01/archives.html">Archives</a></li>
+                                <li><form class="navbar-search" action="https://buehlmaier.github.io/FINA4350-student-blog-2025-01/search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid">
+                <div class="row-fluid">
+                    <div class="span1"></div>
+                    <div class="span10">
+<article itemscope>
+<div class="row-fluid">
+    <header class="page-header span10 offset2">
+        <h1>
+            <a href="https://buehlmaier.github.io/FINA4350-student-blog-2025-01/DeepText Analysts 2.html">
+                Decoding Crypto Volatility: A New Direction
+            </a>
+        </h1>
+    </header>
+</div>
+
+<div class="row-fluid">
+        <div class="span8 offset2 article-content">
+            
+            <h1>Our New Direction</h1>
+<p>As we progressed from the initial phase of our project, we began with the goal of developing a model to predict cryptocurrency prices. However, we encountered several challenges that highlighted the limitations of this approach, which included the objective definition of sentiment, whether correlation necessarily exists between the sentiment on Reddit and prices, and most importantly, whether our model actually identifies and aggregates the sentiment correctly in the first place. Hence, after careful consideration, we've decided to shift our focus to creating accurate methodologies first. Those methodologies would judge the underlying sentiment of each item obtained and allow us to get an aggregated picture for a certain time frame using a scoring method, where 1 = positive, 0 = neutral, -1 = negative. </p>
+<p>Our new idea, as visualised in Figure 1, is an application that allows users to choose between different cryptocurrencies and sentiment sources for eventually running a sentiment-based trading simulation on a cryptocurrency for a selected period of time. Based on the sentiment score obtained for each day, the trading simulator will make a buy or sell decision. This will allow one to test whether it makes sense to make trading decisions based on sentiment at all. If it makes sense, the application will further help with developing a trading strategy. Should it not make sense, the application can serve as a useful example of why one should not care about the sentiment too much. Moving forward, the ultimate goal would be to develop the application in a way that one can investigate the sentiment of a given cryptocurrency and determine an optimal trading strategy based on that sentiment.</p>
+<p><img alt="Picture showing application structure" src="https://buehlmaier.github.io/FINA4350-student-blog-2025-01/images/DeepText-Analysts-02-application-structure.jpg"></p>
+<p>An especially important part of the application is the data updating function, that uses APIs to collect all the required data available with only one click up until the previous day and preprocesses it to a standardized format for the sentiment analysis. Under the hood, it includes the following functions (shortened):</p>
+<p>a) Function that updates sentiment data</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Directories</span>
+<span class="n">PRICE_DIR</span> <span class="o">=</span> <span class="s2">&quot;P2_Data_Analysis/Pricedata&quot;</span>
+<span class="n">SENTIMENT_DIR</span> <span class="o">=</span> <span class="s2">&quot;P2_Data_Analysis/Sentimentdata&quot;</span>
+
+<span class="c1"># Cryptocurrencies and their names/tickers</span>
+<span class="n">COIN_MAP</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;binance-coin&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;binance coin&quot;</span><span class="p">,</span> <span class="s2">&quot;binance&quot;</span><span class="p">,</span> <span class="s2">&quot;BNB&quot;</span><span class="p">],</span>
+    <span class="s2">&quot;bitcoin&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;bitcoin&quot;</span><span class="p">,</span> <span class="s2">&quot;BTC&quot;</span><span class="p">],</span>
+    <span class="s2">&quot;ethereum&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;ethereum&quot;</span><span class="p">,</span> <span class="s2">&quot;ETH&quot;</span><span class="p">],</span>
+    <span class="s2">&quot;solana&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;solana&quot;</span><span class="p">,</span> <span class="s2">&quot;SOL&quot;</span><span class="p">],</span>
+    <span class="s2">&quot;cardano&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;cardano&quot;</span><span class="p">,</span> <span class="s2">&quot;ADA&quot;</span><span class="p">],</span>
+    <span class="s2">&quot;dogecoin&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;dogecoin&quot;</span><span class="p">,</span> <span class="s2">&quot;doge&quot;</span><span class="p">,</span> <span class="s2">&quot;DOGE&quot;</span><span class="p">],</span>
+    <span class="s2">&quot;ripple&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;ripple&quot;</span><span class="p">,</span> <span class="s2">&quot;XRP&quot;</span><span class="p">]</span>
+<span class="p">}</span>
+
+<span class="c1"># [Code outtakes, a lot of functions]</span>
+
+<span class="c1"># Main process</span>
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="c1"># Test authentication</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Testing authentication...&quot;</span><span class="p">)</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Authenticated as: </span><span class="si">{</span><span class="n">reddit</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">me</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">flush</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Authentication failed: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">flush</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">exit</span><span class="p">()</span>
+
+    <span class="c1"># Find all price CSV files</span>
+    <span class="n">csv_files</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">PRICE_DIR</span><span class="p">,</span> <span class="s2">&quot;*_price.csv&quot;</span><span class="p">))</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">csv_files</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;No price CSV files found in </span><span class="si">{</span><span class="n">PRICE_DIR</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">flush</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="k">return</span>
+
+    <span class="n">total_comments_counter</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">for</span> <span class="n">price_file</span> <span class="ow">in</span> <span class="n">csv_files</span><span class="p">:</span>
+        <span class="n">filename</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">price_file</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">filename</span> <span class="o">==</span> <span class="s2">&quot;terra-luna_price.csv&quot;</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Skipping terra-luna_price.csv&quot;</span><span class="p">,</span> <span class="n">flush</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="k">continue</span>
+
+        <span class="c1"># Extract coin ID</span>
+        <span class="n">coin_id</span> <span class="o">=</span> <span class="n">filename</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;_price&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">coin_id</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">COIN_MAP</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Skipping </span><span class="si">{</span><span class="n">coin_id</span><span class="si">}</span><span class="s2">: Not in supported coin list&quot;</span><span class="p">,</span> <span class="n">flush</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="k">continue</span>
+
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Processing </span><span class="si">{</span><span class="n">coin_id</span><span class="si">}</span><span class="s2">...&quot;</span><span class="p">,</span> <span class="n">flush</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">total_comments_counter</span> <span class="o">=</span> <span class="n">save_comments</span><span class="p">(</span><span class="n">coin_id</span><span class="p">,</span> <span class="n">total_comments_counter</span><span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Total comments fetched: </span><span class="si">{</span><span class="n">total_comments_counter</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">flush</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</code></pre></div>
+
+<p>b) Function that updates price data </p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Directory containing price CSV files</span>
+<span class="n">PRICE_DIR</span> <span class="o">=</span> <span class="s2">&quot;P2_Data_Analysis/Pricedata&quot;</span>
+
+<span class="c1"># Main process</span>
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="c1"># Find all CSV files in the price directory</span>
+    <span class="n">csv_files</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">PRICE_DIR</span><span class="p">,</span> <span class="s2">&quot;*_price.csv&quot;</span><span class="p">))</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">csv_files</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;No CSV files found in </span><span class="si">{</span><span class="n">PRICE_DIR</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">return</span>
+
+    <span class="k">for</span> <span class="n">file_path</span> <span class="ow">in</span> <span class="n">csv_files</span><span class="p">:</span>
+        <span class="n">filename</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">filename</span> <span class="o">==</span> <span class="s2">&quot;terra-luna_price.csv&quot;</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Skipping terra-luna_price.csv&quot;</span><span class="p">)</span>
+            <span class="k">continue</span>
+
+        <span class="c1"># Extract coin ID from filename</span>
+        <span class="n">coin_id</span> <span class="o">=</span> <span class="n">filename</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;_price&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Processing </span><span class="si">{</span><span class="n">coin_id</span><span class="si">}</span><span class="s2">...&quot;</span><span class="p">)</span>
+        <span class="n">update_csv_file</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="n">coin_id</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</code></pre></div>
+
+<p>For that part of our project, it was particularly helpful to stick to the data workflow guideline we learnt in the lecture. After conceptualizing a standardized tidy data structure, we decided that storing the data in csv files with naming conventions like "crpytocurrency_price.csv", "cryptocurrency_reddit_comments.csv", "cryptocurrency_alphavantage.csv" is sufficient for our purpose. We also more or less combined the continuous data collection with data cleaning, where the data is cleaned in a dataframe after collection before it is finally stored. This makes sense, as we have to update our data continuously anyway. Our code also includes many data validation elements before the actual sentiment analysis is done. For example, the program will notify the user if the data for a certain cryptocurrency selected is not among the csv files as expected. </p>
+<p>To ensure that the original sentiment data is not affected by transformations like tokenization or stopword-removal, that step is currently done through a dataframe structure as well. However, we already realized that this is not super efficient and actually a waste of computing power. Therefore, we plan to create an additional data storage with preprocessed sentiment data so that only new sentiment data is preprocessed. </p>
+<h4>Functionalities of the Application</h4>
+<p>Our application will include the sentiment analysis models outlined in the diagram, and will offer a range of the most popular cryptocurrencies:</p>
+<ul>
+<li>BinanceCoin (BNB) </li>
+<li>Bitcoin (BTC) </li>
+<li>Cardano (ADA) </li>
+<li>Dogecoin (DOGE) </li>
+<li>Ethereum (ETH) </li>
+<li>Ripple (XRP) </li>
+<li>Solana (SOL) </li>
+<li>Terra Luna (LUNA) -&gt; our basecase, available for the period from January 1, 2022 to June 30, 2022 </li>
+</ul>
+<p>The analysis timeframe available will be any range starting from April 30, 2024. This was a compromise we did because of difficulties in obtaining sentiment data from Reddit, which turned out to be very time consuming due to the slow API. Conversely, collecting daily price data was very easy to do. </p>
+<h1>Our Sentiment Analysis Models</h1>
+<h4>An update on the dictionary method</h4>
+<p>From using the Loughran-McDonald dictionary, we discovered lower accuracy results than expected, with the model having 34.18% accuracy in determining whether a comment had positive, negative or neutral sentiment. As a result, we decided to test another dictionary called ‘AFINN’, which gave us a slightly improved accuracy of 36.69%. Furthermore, after Feng investigated the sentiment labels of the training data, we believe some of the comments may have been mislabelled, which made us conclude that many variables could have contributed to the low accuracy of the model. Although the results were still suboptimal, we believe the dictionary method is still highly valuable as it is the most transparent way of sentiment analysis. Nonetheless, we did not want to rely exclusively on the dictionary method, as we saw a lot of potential in more advanced methods. Generative AI Tools like Grok or ChatGPT are able to judge the underlying sentiment of a given sentence or news headline with almost 100% accuracy, and this is what we eventually want to aim for too. </p>
+<h4>Deep-learning method</h4>
+<p>To further advance our analysis, we decided to create several deep-learning models, which included the Long Short-Term Memory (LSTM), Transformer and Neural Bag of Words model, hoping for better results.</p>
+<h5>LSTM Model</h5>
+<p>We implemented a bidirectional LSTM with stacked layers, embedding capabilities, and dropout features. This architecture processes text sequentially while maintaining memory of previous content - similar to how someone reading a forum thread remembers earlier comments when interpreting new ones.
+The bidirectional approach allows the model to understand context from both directions, capturing nuances in expressions like "To the moon!" which change meaning depending on surrounding text. Our embedding layer groups similar words together in a 128-dimensional space, helping the model recognize related concepts even when wording varies.
+When tested, this model achieved 46.12% accuracy, significantly improving over dictionary methods. This enhancement stems from the LSTM's ability to analyze complete sentences, recognize context, and continuously refine its understanding through training - much like how humans improve at detecting sentiment with experience.</p>
+<h5>Transformer</h5>
+<p>Our transformer approach used pre-trained DistilBERT, which processes entire comments simultaneously rather than word-by-word. This model offers key advantages:
+It employs context-dependent word representations, meaning the same word (like "dump") receives different interpretations based on surrounding text. It also excels at connecting ideas mentioned far apart in lengthy comments.
+Most importantly, DistilBERT comes pre-trained on massive text datasets - like hiring an analyst with years of general language experience before specializing in crypto terminology. Its attention mechanism focuses on the most relevant words when determining sentiment.
+These capabilities delivered an improved 48.27% accuracy, showing that the transformer's sophisticated understanding of language better captured the complex sentiments in cryptocurrency discussions.</p>
+<h5>Neural Bag of Words (NBoW)</h5>
+<p>In this model, we started with a dataset we obtained from Kaggle containing cryptocurrency news with sentiment scores already attached to it and used this to start training our own model using a Fine Tuned model. With our pre-trained model, we can start to implement this on specifically Reddit comments of Bitcoin and obtain our own sentiment scores. Finally, we compared our results with the other methods to get a clearer idea of what sentiment looks like for us. In the end, we managed to get a train accuracy of 95.2% and a test accuracy of 86.4% which is quite high. </p>
+<p>In terms of price prediction, we used a random forest model for this task and compared our results with the dictionary model. We found that there was a significant difference in their best lag days with NBoW having 12 best lag days and the dictionary method having only 4 days. However, both NBoW and Dictionary methods have similar corresponding accuracies with 63.51% and 63.64&amp; respectively. Therefore, we thought of a way to improve this by introducing a time lag between sentiment and price because prices would often respond to sentiment changes with a certain delay.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">torch</span>
+<span class="kn">import</span> <span class="nn">torch.nn</span> <span class="k">as</span> <span class="nn">nn</span>
+<span class="kn">import</span> <span class="nn">torch.optim</span> <span class="k">as</span> <span class="nn">optim</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">torchtext.data.utils</span> <span class="kn">import</span> <span class="n">get_tokenizer</span>
+<span class="kn">from</span> <span class="nn">torchtext.vocab</span> <span class="kn">import</span> <span class="n">build_vocab_from_iterator</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">import</span> <span class="nn">pickle</span>
+
+<span class="c1"># Data preprocessing functions (skeleton)</span>
+<span class="k">def</span> <span class="nf">process_binary_sentiment_data</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
+    <span class="c1"># Convert sentiment column to dict and extract binary label</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;sentiment_dict&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;sentiment&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="nb">eval</span><span class="p">)</span>
+    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;sentiment_dict&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">x</span><span class="p">[</span><span class="s1">&#39;class&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;positive&#39;</span> <span class="k">else</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;text&#39;</span><span class="p">:</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;text&#39;</span><span class="p">],</span> <span class="s1">&#39;label&#39;</span><span class="p">:</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">]})</span>
+
+<span class="k">def</span> <span class="nf">tokenize_example</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">tokenizer</span><span class="p">,</span> <span class="n">max_length</span><span class="o">=</span><span class="mi">256</span><span class="p">):</span>
+    <span class="c1"># Tokenize and truncate</span>
+    <span class="k">return</span> <span class="n">tokenizer</span><span class="p">(</span><span class="n">text</span><span class="p">)[:</span><span class="n">max_length</span><span class="p">]</span>
+
+<span class="k">def</span> <span class="nf">process_data</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">vocab</span><span class="p">,</span> <span class="n">max_length</span><span class="p">):</span>
+    <span class="c1"># Convert tokens to ids and pad</span>
+    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;ids&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;tokens&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">[</span><span class="n">vocab</span><span class="p">[</span><span class="n">token</span><span class="p">]</span> <span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">x</span><span class="p">])</span>
+    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;padded_ids&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;ids&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">+</span> <span class="p">[</span><span class="n">vocab</span><span class="p">[</span><span class="s1">&#39;&lt;pad&gt;&#39;</span><span class="p">]]</span> <span class="o">*</span> <span class="p">(</span><span class="n">max_length</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">max_length</span> <span class="k">else</span> <span class="n">x</span><span class="p">[:</span><span class="n">max_length</span><span class="p">])</span>
+    <span class="n">X</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;padded_ids&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">())</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">())</span>
+    <span class="k">return</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span>
+
+<span class="c1"># Dataset class (skeleton)</span>
+<span class="k">class</span> <span class="nc">CryptoDataset</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">Dataset</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">X</span> <span class="o">=</span> <span class="n">X</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">y</span>
+    <span class="k">def</span> <span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
+    <span class="k">def</span> <span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">idx</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;ids&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">X</span><span class="p">[</span><span class="n">idx</span><span class="p">],</span> <span class="s1">&#39;label&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="n">idx</span><span class="p">]}</span>
+
+<span class="c1"># NBoW model definition (skeleton)</span>
+<span class="k">class</span> <span class="nc">NBoW</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vocab_size</span><span class="p">,</span> <span class="n">embedding_dim</span><span class="p">,</span> <span class="n">output_dim</span><span class="p">,</span> <span class="n">pad_index</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">embedding</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Embedding</span><span class="p">(</span><span class="n">vocab_size</span><span class="p">,</span> <span class="n">embedding_dim</span><span class="p">,</span> <span class="n">padding_idx</span><span class="o">=</span><span class="n">pad_index</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fc</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">embedding_dim</span><span class="p">,</span> <span class="n">output_dim</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ids</span><span class="p">):</span>
+        <span class="n">embedded</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">embedding</span><span class="p">(</span><span class="n">ids</span><span class="p">)</span>
+        <span class="n">pooled</span> <span class="o">=</span> <span class="n">embedded</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">fc</span><span class="p">(</span><span class="n">pooled</span><span class="p">)</span>
+
+<span class="c1"># Training and evaluation functions (skeleton)</span>
+<span class="k">def</span> <span class="nf">train</span><span class="p">(</span><span class="n">data_loader</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">criterion</span><span class="p">,</span> <span class="n">optimizer</span><span class="p">,</span> <span class="n">device</span><span class="p">):</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">batch</span> <span class="ow">in</span> <span class="n">data_loader</span><span class="p">:</span>
+        <span class="n">ids</span> <span class="o">=</span> <span class="n">batch</span><span class="p">[</span><span class="s1">&#39;ids&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+        <span class="n">label</span> <span class="o">=</span> <span class="n">batch</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+        <span class="n">optimizer</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span>
+        <span class="n">output</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">ids</span><span class="p">)</span>
+        <span class="n">loss</span> <span class="o">=</span> <span class="n">criterion</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="n">label</span><span class="p">)</span>
+        <span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+        <span class="n">optimizer</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+    <span class="c1"># return average loss/accuracy (omitted)</span>
+
+<span class="k">def</span> <span class="nf">evaluate</span><span class="p">(</span><span class="n">data_loader</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">criterion</span><span class="p">,</span> <span class="n">device</span><span class="p">):</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
+    <span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">():</span>
+        <span class="k">for</span> <span class="n">batch</span> <span class="ow">in</span> <span class="n">data_loader</span><span class="p">:</span>
+            <span class="n">ids</span> <span class="o">=</span> <span class="n">batch</span><span class="p">[</span><span class="s1">&#39;ids&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+            <span class="n">label</span> <span class="o">=</span> <span class="n">batch</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+            <span class="n">output</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">ids</span><span class="p">)</span>
+            <span class="n">loss</span> <span class="o">=</span> <span class="n">criterion</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="n">label</span><span class="p">)</span>
+    <span class="c1"># return average loss/accuracy (omitted)</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="c1"># Set random seed</span>
+    <span class="n">seed</span> <span class="o">=</span> <span class="mi">1029</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
+    <span class="n">torch</span><span class="o">.</span><span class="n">manual_seed</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
+    <span class="c1"># Load and preprocess data</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;cryptonews.csv&#39;</span><span class="p">)</span>
+    <span class="n">processed_df</span> <span class="o">=</span> <span class="n">process_binary_sentiment_data</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+    <span class="c1"># Tokenize and build vocabulary</span>
+    <span class="n">tokenizer</span> <span class="o">=</span> <span class="n">get_tokenizer</span><span class="p">(</span><span class="s1">&#39;basic_english&#39;</span><span class="p">)</span>
+    <span class="n">processed_df</span><span class="p">[</span><span class="s1">&#39;tokens&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">processed_df</span><span class="p">[</span><span class="s1">&#39;text&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">tokenize_example</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">tokenizer</span><span class="p">))</span>
+    <span class="n">vocab</span> <span class="o">=</span> <span class="n">build_vocab_from_iterator</span><span class="p">(</span><span class="n">processed_df</span><span class="p">[</span><span class="s1">&#39;tokens&#39;</span><span class="p">],</span> <span class="n">specials</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;&lt;unk&gt;&#39;</span><span class="p">,</span> <span class="s1">&#39;&lt;pad&gt;&#39;</span><span class="p">])</span>
+    <span class="n">vocab</span><span class="o">.</span><span class="n">set_default_index</span><span class="p">(</span><span class="n">vocab</span><span class="p">[</span><span class="s1">&#39;&lt;unk&gt;&#39;</span><span class="p">])</span>
+    <span class="c1"># Prepare train/val/test datasets and DataLoaders</span>
+    <span class="n">train_data</span><span class="p">,</span> <span class="n">test_data</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">processed_df</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="n">seed</span><span class="p">)</span>
+    <span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span> <span class="o">=</span> <span class="n">process_data</span><span class="p">(</span><span class="n">train_data</span><span class="p">,</span> <span class="n">vocab</span><span class="p">,</span> <span class="n">max_length</span><span class="o">=</span><span class="mi">256</span><span class="p">)</span>
+    <span class="n">train_dataset</span> <span class="o">=</span> <span class="n">CryptoDataset</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+    <span class="n">train_loader</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">DataLoader</span><span class="p">(</span><span class="n">train_dataset</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">32</span><span class="p">)</span>
+    <span class="c1"># Initialize NBoW model, optimizer, loss</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">NBoW</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">vocab</span><span class="p">),</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">vocab</span><span class="p">[</span><span class="s1">&#39;&lt;pad&gt;&#39;</span><span class="p">])</span>
+    <span class="n">optimizer</span> <span class="o">=</span> <span class="n">optim</span><span class="o">.</span><span class="n">Adam</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">parameters</span><span class="p">())</span>
+    <span class="n">criterion</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">CrossEntropyLoss</span><span class="p">()</span>
+    <span class="n">device</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s1">&#39;cuda&#39;</span> <span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">()</span> <span class="k">else</span> <span class="s1">&#39;cpu&#39;</span><span class="p">)</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+    <span class="c1"># Training loop (simplified)</span>
+    <span class="k">for</span> <span class="n">epoch</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+        <span class="n">train</span><span class="p">(</span><span class="n">train_loader</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">criterion</span><span class="p">,</span> <span class="n">optimizer</span><span class="p">,</span> <span class="n">device</span><span class="p">)</span>
+    <span class="c1"># Save model and vocabulary</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;nbow.pt&#39;</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">torch</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">state_dict</span><span class="p">(),</span> <span class="n">f</span><span class="p">)</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;vocab.pkl&#39;</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">pickle</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">vocab</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span> 
+</code></pre></div>
+
+<h1>Reflections on current progress</h1>
+<p>Seeing how we swiftly adapted and improved our approaches to create a better solution, we believe a few key elements aided us in this process. Firstly, given the project’s time constraint, we considered our strengths and experiences (mainly based on coding experience, which varied from none to deep-learning model training experience) and distributed the workload efficiently. </p>
+<p>Despite the distribution of roles meant that some members coded significantly more than others, the use of Google Collab and GitHub not only allowed us to code collaboratively but ensured everyone was informed of the code written. Furthermore, our weekly group meetings facilitated fruitful discussions where we thrived off everyone’s thoughts and ideas from the data collection process up to the model training. This meant that everyone had a strong conceptual idea of the project and could contribute to the different perspectives that allowed us to reach our final idea.</p>
+<h4>Key Insights</h4>
+<p>Other key insights worth mentioning are especially those that came up during the coding process. As for some of us it was the first time to take on a larger coding project, we noticed that the actual work in creating such a project is taking place off the screen. It was very helpful to brainstorm sometimes before starting any coding, and collecting thoughts on what might be challenging to implement or where one could easily end up with spaghetti code if the process is not well thought through beforehand. Nowadays, once the structure is there, the vast amount of available packages and powerful AI-tools makes a lot of the work to be done very easy. But coming up with a robust structure in the first place can be very challenging. </p>
+<p>For example, for our application, it was very essential to strictly separate the different functionalities of the program. We needed a data collection module on the one hand, and a data analysis module on the other hand. By laying out the structure early enough, we made sure that those two procedures are not intertwined, but only combined in one central python file that walks through the whole package we created. This is an example of the central function for obtaining the sentiment using different methodologies which return the sentiment scores for each item analyzed in a standardized format:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Import sentiment analysis methods</span>
+<span class="kn">from</span> <span class="nn">P2_Data_Analysis.Sentiment_Methods.mod_Loughran</span> <span class="kn">import</span> <span class="n">analyze_loughran_mcdonald</span>
+<span class="kn">from</span> <span class="nn">P2_Data_Analysis.Sentiment_Methods.mod_AFINN</span> <span class="kn">import</span> <span class="n">analyze_afinn</span>
+
+<span class="c1"># Sentiment analysis function</span>
+<span class="k">def</span> <span class="nf">analyze_sentiment</span><span class="p">(</span><span class="n">sentiment_dataframe</span><span class="p">,</span> <span class="n">sentiment_column_name</span><span class="p">,</span> <span class="n">sentiment_method</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Analyze sentiment for each row in the dataframe and attach scores.</span>
+<span class="sd">    Args:</span>
+<span class="sd">        sentiment_dataframe (pd.DataFrame): DataFrame with sentiment data.</span>
+<span class="sd">        sentiment_column_name (str): Column containing text to analyze.</span>
+<span class="sd">        sentiment_method (str): Sentiment analysis method (&#39;AFINN&#39;, &#39;LoughranMcDonald&#39;).</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        pd.DataFrame: DataFrame with added &#39;method_score&#39; and &#39;standardized_score&#39; columns.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">sentiment_dataframe</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+    <span class="c1"># Map sentiment method to function</span>
+    <span class="n">method_map</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;AFINN&#39;</span><span class="p">:</span> <span class="n">analyze_afinn</span><span class="p">,</span>
+        <span class="s1">&#39;LoughranMcDonald&#39;</span><span class="p">:</span> <span class="n">analyze_loughran_mcdonald</span>
+    <span class="p">}</span>
+
+    <span class="k">if</span> <span class="n">sentiment_method</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">method_map</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Unsupported sentiment method: </span><span class="si">{</span><span class="n">sentiment_method</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Apply sentiment analysis</span>
+    <span class="k">def</span> <span class="nf">get_scores</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+        <span class="n">score</span> <span class="o">=</span> <span class="n">method_map</span><span class="p">[</span><span class="n">sentiment_method</span><span class="p">](</span><span class="n">text</span><span class="p">)</span>
+        <span class="n">standardized_score</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">score</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="o">-</span><span class="mi">1</span> <span class="k">if</span> <span class="n">score</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="mi">0</span>
+        <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="n">score</span><span class="p">,</span> <span class="n">standardized_score</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;method_score&#39;</span><span class="p">,</span> <span class="s1">&#39;standardized_score&#39;</span><span class="p">])</span>
+
+    <span class="n">df</span><span class="p">[[</span><span class="s1">&#39;method_score&#39;</span><span class="p">,</span> <span class="s1">&#39;standardized_score&#39;</span><span class="p">]]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">sentiment_column_name</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">get_scores</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">df</span>
+</code></pre></div>
+
+<p>An example where we did not come up with a robust solution from the beginning on and is still to be improved is the following: there are many file paths in our project that are mentioned multiple times. In hindsight, it would have been much easier to create one central module that contains constant variables with all the file paths, so that they can easily be changed. Currently, we would have to change every single one of the file path’s occurrences, which is not only annoying, but also bound to create bugs in the code. </p>
+<h1>Our plan moving forward</h1>
+<h4>Pending Challenges Down the Road</h4>
+<p>There are some challenges that we have to face in next days to build the intended minimum viable product from our project. This involves, for example, consolidating the results from the different sentiment analysis methods. While this was very intuitive for the dictionary methods, we built and trained the AI-based sentiment analysis methods separate from the other parts of the project. This means we still have to find a way to integrate them into the overall structure. Additionally, we also intend to build a user-friendly UI that outputs the results of each trading simulation in a comprehensive way. In terms of the trading simulation, it proves to be challenging to implement short-position. So far, we do not get sensible equity curves when also allowing for shorting the market if sentiment switches from good to bad. </p>
+<p>But with various models and a lot of conceptualisation and work already being complete, we are now starting to finally piece together our trading simulator. We will continue to monitor and evaluate the performance of our sentiment analysis models by looking at the output with our own eyes as well as by creating more test datasets manually or using generative AI to ensure maximum reliability of the training data. Furthermore, we will explore the results of the trading simulations and assess whether sentiment based trading can actually be done in a profitable way that leads either to better performance than a simple buy-and-hold strategy or to less volatility given the same or a slightly lower return. </p>
+
+
+             
+ 
+            
+            
+            
+
+
+
+
+
+
+
+            <hr/>
+        </div>
+        <section id="article-sidebar" class="span2">
+            <h4>Published</h4>
+            <time itemprop="dateCreated" datetime="2025-05-06T23:59:00+08:00">Tue 06 May 2025</time>
+            <h4>Category</h4>
+            <a class="category-link" href="https://buehlmaier.github.io/FINA4350-student-blog-2025-01/categories.html#reflective-report-ref">Reflective Report</a>
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article">
+                <li><a href="https://buehlmaier.github.io/FINA4350-student-blog-2025-01/tags.html#group-deeptext-analysts-ref">Group: DeepText Analysts
+                    <span class="superscript">2</span>
+</a></li>
+            </ul>
+<h4>Contact</h4>
+<div id="sidebar-social-link">
+    <a href="https://github.com/buehlmaier/FINA4350-student-blog-2025-01" title="" target="_blank" rel="nofollow noopener noreferrer">
+        <svg xmlns="http://www.w3.org/2000/svg" aria-label="GitHub" role="img" viewBox="0 0 512 512"><rect width="512" height="512" rx="15%" fill="#1B1817"/><path fill="#fff" d="M335 499c14 0 12 17 12 17H165s-2-17 12-17c13 0 16-6 16-12l-1-50c-71 16-86-28-86-28-12-30-28-37-28-37-24-16 1-16 1-16 26 2 40 26 40 26 22 39 59 28 74 22 2-17 9-28 16-35-57-6-116-28-116-126 0-28 10-51 26-69-3-6-11-32 3-67 0 0 21-7 70 26 42-12 86-12 128 0 49-33 70-26 70-26 14 35 6 61 3 67 16 18 26 41 26 69 0 98-60 120-117 126 10 8 18 24 18 48l-1 70c0 6 3 12 16 12z"/></svg>
+    </a>
+</div>
+            
+
+
+
+
+
+            
+
+
+
+
+
+        </section>
+</div>
+</article>
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe.
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides.
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo https://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                    </div>
+                    <div class="span1"></div>
+                </div>
+            </div>
+        </div>
+<footer>
+
+
+
+
+    <div id="fpowered">
+        Powered by: <a href="http://getpelican.com/" title="Pelican Home Page" target="_blank" rel="nofollow noopener noreferrer">Pelican</a>
+        Theme: <a href="https://elegant.oncrashreboot.com/" title="Theme Elegant Home Page" target="_blank" rel="nofollow noopener noreferrer">Elegant</a>
+    </div>
+</footer>            <script src="//code.jquery.com/jquery.min.js"></script>
+        <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+        <script src="https://buehlmaier.github.io/FINA4350-student-blog-2025-01/theme/js/elegant.prod.9e9d5ce754.js"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+
+    <script>
+    (function () {
+        if (window.location.hash.match(/^#comment-\d+$/)) {
+            $('#comment_thread').collapse('show');
+        }
+    })();
+    window.onhashchange=function(){
+        if (window.location.hash.match(/^#comment-\d+$/))
+            window.location.reload(true);
+    }
+    $('#comment_thread').on('shown', function () {
+        var link = document.getElementById('comment-accordion-toggle');
+        var old_innerHTML = link.innerHTML;
+        $(link).fadeOut(200, function() {
+            $(this).text('Click here to hide comments').fadeIn(200);
+        });
+        $('#comment_thread').on('hidden', function () {
+            $(link).fadeOut(200, function() {
+                $(this).text(old_innerHTML).fadeIn(200);
+            });
+        })
+    })
+</script>
+
+    </body>
+    <!-- Theme: Elegant built for Pelican
+        License : MIT -->
+</html>

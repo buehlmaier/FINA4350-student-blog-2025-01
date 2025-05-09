@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="https://buehlmaier.github.io/FINA4350-student-blog-2025-01/theme/css/elegant.prod.9e9d5ce754.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="https://buehlmaier.github.io/FINA4350-student-blog-2025-01/theme/css/custom.css" media="screen">
+
+        <link rel="dns-prefetch" href="//fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+
+        <meta name="author" content="FINA4350 Students 2025" />
+
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+
+<meta name="keywords" content="Group Depthseeker, Reflective Report, " />
+
+<meta property="og:title" content="Diving Deep - Second Reflections on Journey from the DepthSeeker "/>
+<meta property="og:url" content="https://buehlmaier.github.io/FINA4350-student-blog-2025-01/diving-deep-second-reflections-on-journey-from-the-depthseeker.html" />
+<meta property="og:description" content="Second Reflection - Depthseeker Hey, crypto enthusiasts and data nerds! As we near the finish line of our project analyzing crypto market sentiment from Discord messages, it&#39;s time to pause and reflect on a journey that&#39;s been equally thrilling and humbling. The Stopword Saga: When Removing Words Removes Meaning (by Barbie …" />
+<meta property="og:site_name" content="FINA4350 Student Blog 2025" />
+<meta property="og:article:author" content="FINA4350 Students 2025" />
+<meta property="og:article:published_time" content="2025-05-06T23:30:00+08:00" />
+<meta name="twitter:title" content="Diving Deep - Second Reflections on Journey from the DepthSeeker ">
+<meta name="twitter:description" content="Second Reflection - Depthseeker Hey, crypto enthusiasts and data nerds! As we near the finish line of our project analyzing crypto market sentiment from Discord messages, it&#39;s time to pause and reflect on a journey that&#39;s been equally thrilling and humbling. The Stopword Saga: When Removing Words Removes Meaning (by Barbie …">
+
+        <title>Diving Deep - Second Reflections on Journey from the DepthSeeker  · FINA4350 Student Blog 2025
+</title>
+        <link href="https://buehlmaier.github.io/FINA4350-student-blog-2025-01/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="FINA4350 Student Blog 2025 - Full Atom Feed" />
+
+
+
+    </head>
+    <body>
+        <div id="content">
+            <div class="navbar navbar-static-top">
+                <div class="navbar-inner">
+                    <div class="container-fluid">
+                        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </a>
+                        <a class="brand" href="https://buehlmaier.github.io/FINA4350-student-blog-2025-01/"><span class=site-name>FINA4350 Student Blog 2025</span></a>
+                        <div class="nav-collapse collapse">
+                            <ul class="nav pull-right top-menu">
+                                <li >
+                                    <a href=
+                                       https://buehlmaier.github.io/FINA4350-student-blog-2025-01
+                                    >Home</a>
+                                </li>
+                                <li ><a href="https://buehlmaier.github.io/FINA4350-student-blog-2025-01/categories.html">Categories</a></li>
+                                <li ><a href="https://buehlmaier.github.io/FINA4350-student-blog-2025-01/tags.html">Tags</a></li>
+                                <li ><a href="https://buehlmaier.github.io/FINA4350-student-blog-2025-01/archives.html">Archives</a></li>
+                                <li><form class="navbar-search" action="https://buehlmaier.github.io/FINA4350-student-blog-2025-01/search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid">
+                <div class="row-fluid">
+                    <div class="span1"></div>
+                    <div class="span10">
+<article itemscope>
+<div class="row-fluid">
+    <header class="page-header span10 offset2">
+        <h1>
+            <a href="https://buehlmaier.github.io/FINA4350-student-blog-2025-01/diving-deep-second-reflections-on-journey-from-the-depthseeker.html">
+                Diving Deep - Second Reflections on Journey from the DepthSeeker
+            </a>
+        </h1>
+    </header>
+</div>
+
+<div class="row-fluid">
+        <div class="span8 offset2 article-content">
+            
+            <h1>Second Reflection  - Depthseeker</h1>
+<p>Hey, crypto enthusiasts and data nerds! As we near the finish line of our project analyzing crypto market sentiment from Discord messages, it's time to pause and reflect on a journey that's been equally thrilling and humbling.</p>
+<p><em>The Stopword Saga: When Removing Words Removes Meaning (by Barbie and Anson)</em></p>
+<p>One technical challenge, in particular, turned into a defining moment for our team: the surprising role of stopwords in sentiment analysis using FinBERT.</p>
+<p>It's 2 AM, empty energy drink cans everywhere, and Anson's staring at bizarre sentiment results. Bullish Bitcoin messages like "BTC is a great investment" were tagged bearish. After frantic debugging, we found the issue: our preprocessing pipeline. For word clouds, we removed stopwords like "not" and "very," which highlighted key terms well. But by feeding this cleaned data to FinBERT, we unwittingly sabotaged the model's ability to understand meaning.</p>
+<p>FinBERT, a BERT-based model fine-tuned on financial texts. It doesn't just count "happy" or "sad" words. It leverages an attention mechanism to interpret the contextual relationships between words. This makes it incredibly powerful for financial texts, where nuance is everything. Consider these two Discord messages we encountered:</p>
+<blockquote>
+<p>"BTC is definitely a good investment right now" (+1: Positive)</p>
+<p>"BTC is definitely not a good investment right now" (-1: Negative)</p>
+</blockquote>
+<p>By removing the word "not", both messages look deceptively similar—positive, even. That tiny stopword flips the entire sentiment! Our aggressive preprocessing, designed to streamline word clouds, was stripping away the context FinBERT needed to do its job. By removing stopwords, we turned "not a bad investment" into "bad investment," completely inverting the intended meaning.</p>
+<p>This realization was a turning point. We couldn't treat all text processing as a one-size-fits-all task. Instead, we designed two distinct preprocessing pipelines:</p>
+<blockquote>
+<ol>
+<li>
+<p>Word Frequency Analysis Pipeline: Here, we kept our stopword removal. Stripping out "not," "very," and other common words helped us generate clean, insightful word clouds highlighting the most frequent and relevant crypto terms. This pipeline was all about reducing noise to spotlight trends.</p>
+</li>
+<li>
+<p>Sentiment Analysis Pipeline: For FinBERT, we preserved the sentence structure, including every stopword. This ensured the model could capture the contextual relationships critical for accurate sentiment classification. No more accidental flips from bullish to bearish!</p>
+</li>
+</ol>
+</blockquote>
+<p>This methodological pivot, though seemingly small, dramatically improved our sentiment analysis accuracy. It was a humbling reminder that in NLP, especially for financial texts, the tiniest details—like a single word—can make or break your results.</p>
+<p><em>Model Selection: calculate daily sentiment – 1: positive, 0: neutral, -1: negative (by Woody)</em></p>
+<p><strong>FinBERT vs finbert-tone</strong></p>
+<p>FinBERT is a BERT model pre-trained on financial communication texts, while the Finbert-tone model is a fine-tuned version of FinBERT, trained on 10,000 manually annotated sentences (labeled as positive, neutral, or negative) from analyst reports.
+We initially used the FinBERT model from https://huggingface.co/ProsusAI/finbert to analyze the sentiment of the cryptocurrency-related conversations we collected. The following graph displays the daily average sentiment score, which consistently fluctuates around -0.85, indicating an extremely bearish sentiment. This result is surprising, as we expected individual cryptocurrency investors to exhibit a neutral or bullish average sentiment.</p>
+<p><img alt="Picture showing Powell" src="https://buehlmaier.github.io/FINA4350-student-blog-2025-01/images/1.jpeg"></p>
+<p>After analyzing the dataset, we identified two primary reasons for the unexpectedly bearish sentiment scores from the initial FinBERT model:</p>
+<blockquote>
+<ul>
+<li>
+<p>Discussions on Discord often include informal language and swear words.</p>
+</li>
+<li>
+<p>A bot in the Discord channel frequently detects and flags suspicious scam messages.</p>
+</li>
+</ul>
+</blockquote>
+<p>These findings were confirmed by the presence of words like "sh*t" and "scam" in the word cloud generated from the data.</p>
+<p>We then evaluated the FinBERT-tone model from https://huggingface.co/yiyanghkust/finbert-tone to analyze the sentiment of the collected cryptocurrency-related conversations. As shown in the following graph, the daily average sentiment score fluctuates between 0 and 0.1, indicating a predominantly neutral sentiment. This aligns with our expectations, as individual investors often engage in neutral discussions, including casual chatter, greetings, and noise. Additionally, using the FinBERT-tone model, we observed a moderate positive correlation (0.4785) between BTC prices and daily sentiment scores.</p>
+<p><img alt="Picture showing Powell" src="https://buehlmaier.github.io/FINA4350-student-blog-2025-01/images/2.jpeg"></p>
+<p>Given that the FinBERT-tone model provides more meaningful sentiment interpretations and demonstrates superior performance in financial tone analysis, we decided to adopt it for subsequent analyses.</p>
+<p><strong>Correlation Matrix: Unpacking Relationships</strong></p>
+<p><img alt="Picture showing Powell" src="https://buehlmaier.github.io/FINA4350-student-blog-2025-01/images/3.jpeg"></p>
+<p>The correlation matrix examined three variables: “Amount” (Daily BTC/USD price), “daily_sentiment_score” (average of sentiment score daily), and “daily_discussions” (conversation volume daily). Key findings:</p>
+<blockquote>
+<ul>
+<li>
+<p>Medium-Positive Correlation: “Amount” and “daily_sentiment_score” showed a correlation coefficient of 0.48, indicating a potential correlated relationship between daily sentiment and price of Bitcoin.</p>
+</li>
+<li>
+<p>Weak Correlations: “daily_discussions” had a weak-negative correlation with both “Amount” (-0.11) and “daily_sentiment_score” (-0.25). This suggests the discussion volume is unlikely to be correlated with BTC/USD nor daily sentiment.</p>
+</li>
+</ul>
+</blockquote>
+<p><em>LSTM Analysis: making price predictions (by Woody, Barbie, Anson)</em></p>
+<p><strong>LSTM Price Prediction (Historical Price only): Capturing Historical Trends</strong></p>
+<p><img alt="Picture showing Powell" src="https://buehlmaier.github.io/FINA4350-student-blog-2025-01/images/4.jpeg"></p>
+<p>The LSTM prediction graph split BTC price predictions into training and testing phases:</p>
+<blockquote>
+<ul>
+<li>
+<p>Training Accuracy: The model closely followed historical price patterns. (Test_MAPE: 8.75%)</p>
+</li>
+<li>
+<p>Testing Performance: It tracked true values reasonably well but struggled with sharp peaks, like the 2024 surge, underestimating price jumps.</p>
+</li>
+</ul>
+</blockquote>
+<p>The LSTM model effectively captures historical trends, but upon closer inspection, it exhibits a lagging effect in its predicted price movements. The model tends to predict today’s price based heavily on the closing price of the previous trading day. This observation highlights that predictive models require more than just historical data to achieve robust performance.</p>
+<p><strong>Enhanced LSTM (Historical Price + Sentiment + Discussion): Sharpening Predictions</strong></p>
+<p><img alt="Picture showing Powell" src="https://buehlmaier.github.io/FINA4350-student-blog-2025-01/images/5.jpeg"></p>
+<p>Incorporating sentiment and discussion volume improved predictions:</p>
+<blockquote>
+<ul>
+<li>
+<p>Slightly Improved Alignment: The enhanced model captured trends better, though it still underestimated peaks and troughs. (Test_MAPE: 5.09%)</p>
+</li>
+<li>
+<p>Sentiment and Discussion Impact: These features added valuable context for price prediction.</p>
+</li>
+</ul>
+</blockquote>
+<p>This analysis confirmed our hypothesis that incorporating sentiment and discussion data enhances predictive power (reduced test MAPE). However, upon closer examination of the predicted price movements, the model still exhibits a lagging effect.</p>
+<p><strong>Broader Lessons and Reflections</strong></p>
+<p>The modest correlations and improved LSTM performance demonstrated that while sentiment and discussion metrics add value, they aren't definitive predictors—cryptocurrency volatility frequently results from external factors such as news events or regulatory changes.</p>
+<p>Through debugging sessions, we learned to challenge assumptions, enhance preprocessing techniques, and combine multiple data streams. The improved LSTM results highlighted the effectiveness of integrating sentiment and discussion metrics, though persistent prediction gaps reminded us of cryptocurrency's inherent unpredictability. As we conclude this blog series, we recognize that exploring real-time external data to supplement our models would be the next logical step in seeking better foresight in this volatile market. More comprehensive insights from our research will be included in our final report.</p>
+
+
+             
+ 
+            
+            
+            
+
+
+
+
+
+
+
+            <hr/>
+        </div>
+        <section id="article-sidebar" class="span2">
+            <h4>Published</h4>
+            <time itemprop="dateCreated" datetime="2025-05-06T23:30:00+08:00">Tue 06 May 2025</time>
+            <h4>Category</h4>
+            <a class="category-link" href="https://buehlmaier.github.io/FINA4350-student-blog-2025-01/categories.html#reflective-report-ref">Reflective Report</a>
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article">
+                <li><a href="https://buehlmaier.github.io/FINA4350-student-blog-2025-01/tags.html#group-depthseeker-ref">Group Depthseeker
+                    <span class="superscript">2</span>
+</a></li>
+            </ul>
+<h4>Contact</h4>
+<div id="sidebar-social-link">
+    <a href="https://github.com/buehlmaier/FINA4350-student-blog-2025-01" title="" target="_blank" rel="nofollow noopener noreferrer">
+        <svg xmlns="http://www.w3.org/2000/svg" aria-label="GitHub" role="img" viewBox="0 0 512 512"><rect width="512" height="512" rx="15%" fill="#1B1817"/><path fill="#fff" d="M335 499c14 0 12 17 12 17H165s-2-17 12-17c13 0 16-6 16-12l-1-50c-71 16-86-28-86-28-12-30-28-37-28-37-24-16 1-16 1-16 26 2 40 26 40 26 22 39 59 28 74 22 2-17 9-28 16-35-57-6-116-28-116-126 0-28 10-51 26-69-3-6-11-32 3-67 0 0 21-7 70 26 42-12 86-12 128 0 49-33 70-26 70-26 14 35 6 61 3 67 16 18 26 41 26 69 0 98-60 120-117 126 10 8 18 24 18 48l-1 70c0 6 3 12 16 12z"/></svg>
+    </a>
+</div>
+            
+
+
+
+
+
+            
+
+
+
+
+
+        </section>
+</div>
+</article>
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe.
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides.
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo https://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                    </div>
+                    <div class="span1"></div>
+                </div>
+            </div>
+        </div>
+<footer>
+
+
+
+
+    <div id="fpowered">
+        Powered by: <a href="http://getpelican.com/" title="Pelican Home Page" target="_blank" rel="nofollow noopener noreferrer">Pelican</a>
+        Theme: <a href="https://elegant.oncrashreboot.com/" title="Theme Elegant Home Page" target="_blank" rel="nofollow noopener noreferrer">Elegant</a>
+    </div>
+</footer>            <script src="//code.jquery.com/jquery.min.js"></script>
+        <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+        <script src="https://buehlmaier.github.io/FINA4350-student-blog-2025-01/theme/js/elegant.prod.9e9d5ce754.js"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+
+    <script>
+    (function () {
+        if (window.location.hash.match(/^#comment-\d+$/)) {
+            $('#comment_thread').collapse('show');
+        }
+    })();
+    window.onhashchange=function(){
+        if (window.location.hash.match(/^#comment-\d+$/))
+            window.location.reload(true);
+    }
+    $('#comment_thread').on('shown', function () {
+        var link = document.getElementById('comment-accordion-toggle');
+        var old_innerHTML = link.innerHTML;
+        $(link).fadeOut(200, function() {
+            $(this).text('Click here to hide comments').fadeIn(200);
+        });
+        $('#comment_thread').on('hidden', function () {
+            $(link).fadeOut(200, function() {
+                $(this).text(old_innerHTML).fadeIn(200);
+            });
+        })
+    })
+</script>
+
+    </body>
+    <!-- Theme: Elegant built for Pelican
+        License : MIT -->
+</html>

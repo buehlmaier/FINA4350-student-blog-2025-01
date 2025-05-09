@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="https://buehlmaier.github.io/FINA4350-student-blog-2025-01/theme/css/elegant.prod.9e9d5ce754.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="https://buehlmaier.github.io/FINA4350-student-blog-2025-01/theme/css/custom.css" media="screen">
+
+        <link rel="dns-prefetch" href="//fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+
+        <meta name="author" content="FINA4350 Students 2025" />
+
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+
+<meta name="keywords" content="Group AI16Z, Reflective Report, " />
+
+<meta property="og:title" content="Navigating the Noise: Our Journey Building and Backtesting a Bitcoin Sentiment Trading Strategy (by Group &#34;AI16Z&#34;) "/>
+<meta property="og:url" content="https://buehlmaier.github.io/FINA4350-student-blog-2025-01/navigating-the-noise-our-journey-building-and-backtesting-a-bitcoin-sentiment-trading-strategy-by-group-ai16z.html" />
+<meta property="og:description" content="Introduction: Diving Deeper Welcome back! This is our second blog post documenting the journey of our FINA4350 group project: developing a Bitcoin trading strategy driven by sentiment analysis of CoinDesk news headlines. At the end of the course, we want to reflect on the process, particularly the technical hurdles and …" />
+<meta property="og:site_name" content="FINA4350 Student Blog 2025" />
+<meta property="og:article:author" content="FINA4350 Students 2025" />
+<meta property="og:article:published_time" content="2025-05-06T10:00:00+08:00" />
+<meta name="twitter:title" content="Navigating the Noise: Our Journey Building and Backtesting a Bitcoin Sentiment Trading Strategy (by Group &#34;AI16Z&#34;) ">
+<meta name="twitter:description" content="Introduction: Diving Deeper Welcome back! This is our second blog post documenting the journey of our FINA4350 group project: developing a Bitcoin trading strategy driven by sentiment analysis of CoinDesk news headlines. At the end of the course, we want to reflect on the process, particularly the technical hurdles and …">
+
+        <title>Navigating the Noise: Our Journey Building and Backtesting a Bitcoin Sentiment Trading Strategy (by Group &#34;AI16Z&#34;)  · FINA4350 Student Blog 2025
+</title>
+        <link href="https://buehlmaier.github.io/FINA4350-student-blog-2025-01/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="FINA4350 Student Blog 2025 - Full Atom Feed" />
+
+
+
+    </head>
+    <body>
+        <div id="content">
+            <div class="navbar navbar-static-top">
+                <div class="navbar-inner">
+                    <div class="container-fluid">
+                        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </a>
+                        <a class="brand" href="https://buehlmaier.github.io/FINA4350-student-blog-2025-01/"><span class=site-name>FINA4350 Student Blog 2025</span></a>
+                        <div class="nav-collapse collapse">
+                            <ul class="nav pull-right top-menu">
+                                <li >
+                                    <a href=
+                                       https://buehlmaier.github.io/FINA4350-student-blog-2025-01
+                                    >Home</a>
+                                </li>
+                                <li ><a href="https://buehlmaier.github.io/FINA4350-student-blog-2025-01/categories.html">Categories</a></li>
+                                <li ><a href="https://buehlmaier.github.io/FINA4350-student-blog-2025-01/tags.html">Tags</a></li>
+                                <li ><a href="https://buehlmaier.github.io/FINA4350-student-blog-2025-01/archives.html">Archives</a></li>
+                                <li><form class="navbar-search" action="https://buehlmaier.github.io/FINA4350-student-blog-2025-01/search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid">
+                <div class="row-fluid">
+                    <div class="span1"></div>
+                    <div class="span10">
+<article itemscope>
+<div class="row-fluid">
+    <header class="page-header span10 offset2">
+        <h1>
+            <a href="https://buehlmaier.github.io/FINA4350-student-blog-2025-01/navigating-the-noise-our-journey-building-and-backtesting-a-bitcoin-sentiment-trading-strategy-by-group-ai16z.html">
+                Navigating the Noise: Our Journey Building and Backtesting a Bitcoin Sentiment Trading Strategy (by Group "AI16Z")
+            </a>
+        </h1>
+    </header>
+</div>
+
+<div class="row-fluid">
+        <div class="span8 offset2 article-content">
+            
+            <h2>Introduction: Diving Deeper</h2>
+<p>Welcome back! This is our second blog post documenting the journey of our FINA4350 group project: developing a Bitcoin trading strategy driven by sentiment analysis of CoinDesk news headlines. At the end of the course, we want to reflect on the <em>process</em>, particularly the technical hurdles and design choices encountered while building our sentiment prediction engine and backtesting framework.</p>
+<p>This post looks under the hood, sharing the challenges we faced translating theory into code, and how we tackled them. We believe documenting this journey is crucial for learning and offers a different perspective than simply presenting the outcome.</p>
+<h2>Part 1: Engineering the Sentiment Engine - Challenges &amp; Design Choices</h2>
+<p>Our first major task was building a system to extract meaningful sentiment signals from raw news headlines. This involved more than just plugging data into libraries; it required careful consideration of data handling, feature engineering, and model selection within a time-series context.</p>
+<h3>Challenge 1: Taming the Text Wild West</h3>
+<p>Financial news headlines aren't always perfectly structured. Our <code>preprocess_text</code> function implemented standard cleaning steps essential for reliable analysis:</p>
+<ul>
+<li>Converting text to lowercase (<code>text.lower()</code>).</li>
+<li>Removing punctuation (<code>text.translate(str.maketrans('', '', string.punctuation))</code>).</li>
+<li>Tokenizing text into words (<code>nltk.word_tokenize</code>).</li>
+<li>Removing common English stopwords (<code>nltk.corpus.stopwords.words('english')</code>).</li>
+</ul>
+<p>These steps ensured a more consistent input for feature extraction. While we initially considered more complex cleaning (like handling potential HTML remnants), we focused on this standard pipeline for the core modeling process fed by the <code>get_daily_features</code> function.</p>
+<p><strong>Why it Matters</strong>: Garbage in, garbage out. Clean, standardized text is fundamental for meaningful feature generation and model performance.</p>
+<h3>Design Choice: A Multi-Lens Approach to Sentiment (TextBlob &amp; VADER)</h3>
+<p>We employed <em>both</em> TextBlob and VADER (<code>SentimentIntensityAnalyzer</code>) within our <code>get_daily_features</code> function to capture sentiment:</p>
+<ul>
+<li><strong>TextBlob:</strong> Provided basic polarity and subjectivity scores (<code>TextBlob(art).sentiment</code>).</li>
+<li><strong>VADER:</strong> Generated compound, positive, negative, and neutral scores (<code>sid.polarity_scores(art)</code>), specifically designed for shorter texts and potentially capturing nuances better.</li>
+</ul>
+<p><strong>Our Rationale:</strong> Combining signals from both aimed for a more robust sentiment measure. TextBlob offered a general view, while VADER provided intensity-aware scores. These scores (specifically TextBlob polarity and VADER compound) became direct inputs for some models.</p>
+<p><strong>Reflection:</strong> We recognized these lexicon-based tools have inherent limitations (e.g., nuanced financial jargon, difficulty with complex sentence structures) and viewed their outputs as potentially noisy signals rather than perfect ground truth.</p>
+<h3>Design Choice: Varied Features for Different Models</h3>
+<p>We experimented with different feature sets for our machine learning models:</p>
+<ul>
+<li><strong>TextBlob's NaiveBayesAnalyzer:</strong> We utilized TextBlob's built-in Naive Bayes sentiment analyzer (<code>TextBlob(art, analyzer=NaiveBayesAnalyzer())</code>). This approach directly calculates positive (<code>p_pos</code>) and negative (<code>p_neg</code>) probabilities based on TextBlob's pre-trained model, rather than training a new model on custom features. Our final 'NB' signal was the difference: <code>p_pos - p_neg</code>.</li>
+<li><strong>Lexicon Scores for Logistic Regression (LR) &amp; K-Nearest Neighbors (KNN):</strong></li>
+<li>For LR, we used TextBlob polarity, TextBlob subjectivity, and VADER compound scores as input features (<code>np.column_stack</code>).</li>
+<li>For KNN, we used TextBlob polarity and VADER compound scores.</li>
+<li><strong>Word Frequency for Random Forest (RF):</strong> Only for the Random Forest model did we use word frequency features derived from Scikit-learn's <code>CountVectorizer(max_features=100)</code>. This converted the preprocessed article text (<code>' '.join(art)</code>) into word count vectors (<code>word_features</code>), allowing the RF model to learn patterns directly from word usage (e.g., frequency of "rally", "crash").</li>
+</ul>
+<p><strong>Target Variable:</strong> For the supervised models (LR, RF, KNN), the target variable <code>y_train</code> was derived from the training data's TextBlob polarity scores: <code>np.array([1 if p &gt;= 0.05 else 0 for p in features_train['tb_polarity']])</code>. The models were thus trained to predict whether the average sentiment polarity (via TextBlob) was likely to be positive (<span class="math">\(\ge 0.05\)</span>) or not.</p>
+<h3>Challenge 2: The Selection of features in Machine Learning Models</h3>
+<p>Initially, our logistic regression model and KNN used only TextBlob’s polarity score to predict the overall sentiment of news articles. Moreover, Due to the singular matrix issue of the logistic regression model and the complexity of regularization and bootstrapping in the classroom setting, we simplified the logistic regression model. We transitioned from a word-based feature approach to an article-based feature approach, and a similar simplication is applied to the random forest model.</p>
+<p>However, high errors were observed for all the machine learning models. The Mean Absolute Error (MAE) of Naive Bayes, Logistic Regression, Random Forest and KNN were 0.46458, 0.25034, 0.20578 and 0.25183 respectively, and  their Root Mean-squared Error (RMSE) were 0.52180, 0.31043, 0.26212, 0.31482 respectively. Worse still, the optimal strategy based on shown in the heatmap did not outperform the benchmark strategy (i.e. a long position of BTC). The poor performance result reveals the critical shortcomings in our machine learning models, and the main issues might be particularly related with the feature selection process.</p>
+<p><img alt="AI16Z_02_bad_attempt" src="images/AI16Z_02_bad_attempt.png"></p>
+<p><strong>Our Solution:</strong> We made adjustments and feature enhancement of the Machine Learning Models</p>
+<ol>
+<li>Incorporate additional features, such as the VADAR compound score for both logistic regression and KNN, and Textblob Subjectivity for logistic regression</li>
+<li>For random forest model, we reintroduced word-level features but aggregated results at the article level to avoid matrix singularity issues.</li>
+</ol>
+<h4><strong>Code Snippet 1: Original version of Random Forest</strong> <em>(Illustrative)</em></h4>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">random_forest</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span> <span class="n">training_days</span><span class="p">,</span> <span class="n">test_day</span><span class="p">):</span>
+    <span class="c1"># Training data</span>
+    <span class="n">features_train</span> <span class="o">=</span> <span class="n">get_daily_features</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">training_days</span><span class="p">)</span>
+    <span class="n">X_train</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">column_stack</span><span class="p">([</span>
+        <span class="n">features_train</span><span class="p">[</span><span class="s1">&#39;tb_polarity&#39;</span><span class="p">]</span>
+    <span class="p">])</span>
+    <span class="n">y_train</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span> <span class="k">if</span> <span class="n">p</span> <span class="o">&gt;=</span> <span class="mf">0.05</span> <span class="k">else</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">features_train</span><span class="p">[</span><span class="s1">&#39;tb_polarity&#39;</span><span class="p">]])</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">models</span><span class="p">[</span><span class="s1">&#39;random_forest&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+
+    <span class="c1"># Test data</span>
+    <span class="n">features_test</span> <span class="o">=</span> <span class="n">get_daily_features</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="p">[</span><span class="n">test_day</span><span class="p">])</span>
+    <span class="n">X_test</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">column_stack</span><span class="p">([</span>
+        <span class="n">features_test</span><span class="p">[</span><span class="s1">&#39;tb_polarity&#39;</span><span class="p">],</span>
+    <span class="p">])</span>
+
+    <span class="c1"># Predict</span>
+    <span class="n">probs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">models</span><span class="p">[</span><span class="s1">&#39;random_forest&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+    <span class="n">pos_prob</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">probs</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">])</span>
+    <span class="n">neg_prob</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">probs</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">])</span>
+
+    <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;positive_prob&#39;</span><span class="p">:</span> <span class="n">pos_prob</span><span class="p">,</span> <span class="s1">&#39;negative_prob&#39;</span><span class="p">:</span> <span class="n">neg_prob</span><span class="p">}</span>
+</code></pre></div>
+
+<h4><strong>Code Snippet 2: Updated version of Random Forest</strong> <em>(Illustrative)</em></h4>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">random_forest</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span> <span class="n">training_days</span><span class="p">,</span> <span class="n">test_day</span><span class="p">):</span>
+    <span class="c1"># Training data</span>
+    <span class="n">features_train</span> <span class="o">=</span> <span class="n">get_daily_features</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">training_days</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">features_train</span><span class="p">[</span><span class="s1">&#39;articles&#39;</span><span class="p">]</span> <span class="ow">or</span> <span class="n">features_train</span><span class="p">[</span><span class="s1">&#39;word_features&#39;</span><span class="p">]</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;positive_prob&#39;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span> <span class="s1">&#39;negative_prob&#39;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">}</span>
+
+    <span class="n">vectorizer</span> <span class="o">=</span> <span class="n">features_train</span><span class="p">[</span><span class="s1">&#39;vectorizer&#39;</span><span class="p">]</span>
+    <span class="n">X_train</span> <span class="o">=</span> <span class="n">features_train</span><span class="p">[</span><span class="s1">&#39;word_features&#39;</span><span class="p">]</span>
+    <span class="n">y_train</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span> <span class="k">if</span> <span class="n">p</span> <span class="o">&gt;=</span> <span class="mf">0.05</span> <span class="k">else</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">features_train</span><span class="p">[</span><span class="s1">&#39;tb_polarity&#39;</span><span class="p">]])</span>
+
+    <span class="c1"># Train model</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">models</span><span class="p">[</span><span class="s1">&#39;random_forest&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+
+    <span class="c1"># Test data</span>
+    <span class="n">features_test</span> <span class="o">=</span> <span class="n">get_daily_features</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="p">[</span><span class="n">test_day</span><span class="p">],</span> <span class="n">vectorizer</span><span class="o">=</span><span class="n">vectorizer</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">features_test</span><span class="p">[</span><span class="s1">&#39;articles&#39;</span><span class="p">]</span> <span class="ow">or</span> <span class="n">features_test</span><span class="p">[</span><span class="s1">&#39;word_features&#39;</span><span class="p">]</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;positive_prob&#39;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span> <span class="s1">&#39;negative_prob&#39;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">}</span>
+
+    <span class="n">X_test</span> <span class="o">=</span> <span class="n">features_test</span><span class="p">[</span><span class="s1">&#39;word_features&#39;</span><span class="p">]</span>
+
+    <span class="c1"># Predict</span>
+    <span class="n">probs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">models</span><span class="p">[</span><span class="s1">&#39;random_forest&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+    <span class="n">pos_prob</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">probs</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">])</span>
+    <span class="n">neg_prob</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">probs</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">])</span>
+
+    <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;positive_prob&#39;</span><span class="p">:</span> <span class="n">pos_prob</span><span class="p">,</span> <span class="s1">&#39;negative_prob&#39;</span><span class="p">:</span> <span class="n">neg_prob</span><span class="p">}</span>
+</code></pre></div>
+
+<p><strong>Result:</strong> After refining the KNN, random forest, and logistic regression models through feature enhancement, all models exhibited improved accuracy. The Mean Absolute Error (MAE) of Naive Bayes, Logistic Regression, Random Forest and KNN became 0.46458, 0.15613, 0.16990 and 0.16283 respectively, and their Root Mean-squared Error (RMSE) were 0.52180, 0.19246, 0.21102, 0.20904 respectively.</p>
+<h3>Challenge 3: Respecting Time - The Rolling Window</h3>
+<p>Financial data is inherently time-ordered. A simple train-test split invites lookahead bias and ignores potential changes in market dynamics (non-stationarity).</p>
+<p><strong>Our Solution:</strong> We implemented a rolling window approach in the main loop of <code>rolling_models.py</code>:</p>
+<ol>
+<li>Define a lookback (training) period (<code>10</code> days in our script: <code>range(10, len(unique_days))</code> and <code>training_days = unique_days[i - 10:i]</code>).</li>
+<li>Train the models (LR, RF, KNN) on data from the training window. (NB used TextBlob's analyzer on the test day directly).</li>
+<li>Generate sentiment predictions/scores for the next day (<code>test_day = unique_days[i]</code>).</li>
+<li>Roll the window forward by one day and repeat.</li>
+</ol>
+<p><strong>Implementation Hurdle:</strong> This retraining at each step is computationally more demanding than a single split but crucial for simulating a realistic learning process over time.</p>
+<h4><strong>Code Snippet 3: Conceptual Rolling Window Indices</strong> <em>(Illustrative)</em></h4>
+<p>Here’s a simplified conceptual Python snippet <em>(We will include the full script in the final project)</em>:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="c1"># This function illustrates how training/test indices are generated for each step.</span>
+<span class="c1"># The actual implementation in rolling_models.py uses date strings directly.</span>
+<span class="k">def</span> <span class="nf">get_rolling_window_indices</span><span class="p">(</span><span class="n">data_length</span><span class="p">,</span> <span class="n">window_size</span><span class="p">,</span> <span class="n">forecast_horizon</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+    <span class="n">indices</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">data_length</span> <span class="o">-</span> <span class="n">window_size</span> <span class="o">-</span> <span class="n">forecast_horizon</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="n">train_indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">i</span> <span class="o">+</span> <span class="n">window_size</span><span class="p">)</span>
+        <span class="n">test_indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="n">window_size</span><span class="p">,</span> <span class="n">i</span> <span class="o">+</span> <span class="n">window_size</span> <span class="o">+</span> <span class="n">forecast_horizon</span><span class="p">)</span>
+        <span class="n">indices</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">train_indices</span><span class="p">,</span> <span class="n">test_indices</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">indices</span>
+
+<span class="c1"># Example:</span>
+<span class="n">total_days</span> <span class="o">=</span> <span class="mi">25</span>
+<span class="n">training_window</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">rolling_indices</span> <span class="o">=</span> <span class="n">get_rolling_window_indices</span><span class="p">(</span><span class="n">total_days</span><span class="p">,</span> <span class="n">training_window</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;First window: Train indices </span><span class="si">{</span><span class="n">rolling_indices</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">, Test indices </span><span class="si">{</span><span class="n">rolling_indices</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+
+<p><em>Explanation:</em> This conceptual code shows how, at each step, we define a set of past days for training and the next day for testing (prediction). Our script uses lists of date strings (<code>training_days</code>, <code>test_day</code>) to slice the DataFrame accordingly.</p>
+<h4>Baseline: Pre-existing Coindesk Sentiment</h4>
+<p>Our dataset (<code>all_coindesk_news.csv</code>) included a column named 'sentiment'. We created a simple baseline signal using the <code>coindesk_score</code> function, which mapped 'POSITIVE' to 1, 'NEGATIVE' to -1, 'NEUTRAL' to 0, and calculated the daily average of this score. This provided a non-ML reference point.</p>
+<h2>Part 2: Backtesting the Signals  - From Prediction to P&amp;L</h2>
+<p>Generating daily sentiment scores (<code>models_results.csv</code>) was just the first step. We needed a framework (<code>Backtest.py</code>) to translate these scores into trading signals and rigorously evaluate their historical performance against Bitcoin price data (<code>BTC_1d_binance.csv</code>).</p>
+<h3>Challenge 4: Defining the Trading Logic - Thresholds &amp; Signal Inversion</h3>
+<p>How does a sentiment score (like the NB score <code>p_pos - p_neg</code>) trigger a trade? We used a threshold-based system defined in the <code>model_position</code> function:</p>
+<ul>
+<li>If <code>signal_col &gt; threhold_tuple[0]</code> (upper threshold), take a short position (-1).</li>
+<li>If <code>signal_col &lt; threhold_tuple[1]</code> (lower threshold), take a long position (+1).</li>
+<li>Otherwise, remain flat (0).</li>
+</ul>
+<p><strong>The Hurdle:</strong> Finding good thresholds requires testing. We explored different threshold pairs, using tools like the Sharpe Ratio heatmap generated by <code>plot_heatmap</code> (commented out in the final script run) to visualize performance across various upper/lower threshold combinations.</p>
+<p><strong>Signal Inversion ("Momentum"):</strong> The <code>model_position</code> function includes a <code>momentum</code> boolean flag. When <code>momentum=True</code>, the calculated position is inverted (<code>position_col = position_col * -1</code>). <strong>Our Rationale/Use:</strong> Instead of a traditional price momentum filter, we used this flag to test a <em>contrarian</em> application of the sentiment signal. If <code>momentum=True</code>, a positive sentiment signal (normally long) would trigger a short position, and vice-versa. This explores whether sentiment might be acting as a counter-indicator (e.g., extreme positive sentiment preceding a pullback). <strong>Reflection:</strong> This inversion adds a layer to strategy testing – does the raw signal work, or does its inverse work better under certain conditions?</p>
+<h3>Challenge 5: Achieving Realistic Backtesting</h3>
+<p>Naive backtests can be misleading. Our <code>backtest</code> function incorporated crucial elements for realism:</p>
+<ol>
+<li><strong>Data Alignment:</strong> Merging sentiment scores (<code>models_result.csv</code>, renamed from <code>models_results.csv</code>) with daily Bitcoin price data (<code>BTC_1d_binance.csv</code>) using Pandas, ensuring correct alignment by timestamp (<code>pd.to_datetime</code>, <code>set_index</code>, <code>pd.concat</code>). Index timezones were localized and removed (<code>tz_localize(None)</code>) for compatibility.</li>
+<li><strong>Transaction Costs:</strong> We included per-trade costs using <code>unit_tc=0.0002</code> (representing 0.02% or 2 basis points per trade). Costs were calculated based on the absolute change in position from the previous day: <code>abs(signal_price_df['position'] - signal_price_df['position'].shift(1)) * unit_tc</code>. This realistically degrades performance compared to a zero-cost simulation.</li>
+<li><strong>Performance Metrics:</strong> We used the <code>util_performance</code> module (presumably containing standard financial metrics calculations) via the <code>calculate_performance_metrics</code> function to assess strategies beyond simple returns, focusing on:</li>
+<li>Annualized Return</li>
+<li>Maximum Drawdown (MDD)</li>
+<li>Sharpe Ratio (risk-adjusted return)</li>
+<li>Calmar Ratio (return relative to MDD)</li>
+</ol>
+<p><strong>Limitations:</strong> Our backtest, while incorporating costs, still operates under simplifying assumptions. It doesn't model <em>slippage</em> (difference between expected and execution price), market impact of trades, or varying liquidity conditions.</p>
+<h4><strong>Code Snippet 4: Accurate Daily P&amp;L Calculation Logic</strong></h4>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">calculate_daily_pnl_accurate</span><span class="p">(</span><span class="n">price_data_col</span><span class="p">,</span> <span class="n">position_col</span><span class="p">,</span> <span class="n">transaction_cost_col</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calculates daily P&amp;L based on the logic in Backtest.py.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        price_data_col (pd.Series): Daily fractional price returns (pct_change).</span>
+<span class="sd">        position_col (pd.Series): Position held for the current day (-1, 0, 1).</span>
+<span class="sd">        transaction_cost_col (pd.Series): Transaction cost incurred for the current day.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        pd.Series: Net daily profit and loss.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">daily_pnl</span> <span class="o">=</span> <span class="p">(</span><span class="n">position_col</span> <span class="o">*</span> <span class="n">price_data_col</span><span class="p">)</span> <span class="o">-</span> <span class="n">transaction_cost_col</span>
+    <span class="k">return</span> <span class="n">daily_pnl</span>
+</code></pre></div>
+
+<p><em><em>Explanation:</em>  It multiplies the position held </em>during<em> Day T by the price return </em>of* Day T, and then subtracts the transaction cost associated with establishing that position (calculated based on the change from Day T-1).</p>
+<h2>Part 3: Backtest Results Summary - Logistic Regression Wins</h2>
+<p>After evaluating all implemented models (Naive Bayes, Logistic Regression, Random Forest, KNN) on their ability to predict the sentiment target variable (derived from TextBlob polarity &gt;= 0.05), the <strong>Logistic Regression (LR) model demonstrated superior predictive performance</strong> based on Mean Absolute Error (MAE) and Root Mean Squared Error (RMSE) when trained on TextBlob polarity, TextBlob subjectivity, and VADER compound scores within a 10-day rolling window.</p>
+<ul>
+<li><strong>Sentiment Prediction Model Performance (Error Metrics):</strong></li>
+<li>Naïve Bayes: MAE 0.46458, RMSE 0.52180</li>
+<li><strong>Logistic Regression: MAE 0.15613, RMSE 0.19246</strong></li>
+<li>Random Forest: MAE 0.16990, RMSE 0.21102</li>
+<li>K-Nearest Neighbors (KNN): MAE 0.16283, RMSE 0.20904</li>
+</ul>
+<p><img alt="AI16Z_02_final_heat_map" src="images/AI16Z_02_final_heat_map.png"></p>
+<p>Given its stronger sentiment prediction capabilities, the Logistic Regression model's output signal (positive_prob - negative_prob) was carried forward for extensive backtesting to identify an optimal trading strategy.</p>
+<p><strong>Optimal Trading Strategy Highlight: Logistic Regression</strong></p>
+<ul>
+<li>This strategy utilized the sentiment signal from the Logistic Regression model.</li>
+<li>Transaction Cost: 0.0002 (2 bps) per trade was applied.</li>
+</ul>
+<p><strong>Performance Metrics (Optimal Logistic Regression Strategy):</strong></p>
+<ul>
+<li>Annualized Return: 78.5%</li>
+<li>Maximum Drawdown (MDD): 14%</li>
+<li>Sharpe Ratio (Strategy): 2.33</li>
+</ul>
+<p><strong>Benchmark Performance (Buy-and-Hold Bitcoin over the same period):</strong></p>
+<ul>
+<li>Annualized Return: 52.4%</li>
+<li>Maximum Drawdown (MDD): 51%</li>
+<li>Sharpe Ratio (Benchmark): 1.008</li>
+</ul>
+<p>The <code>plot_equity_curve</code> function visually confirmed the LR strategy's cumulative P&amp;L against the Buy-and-Hold benchmark, and tools like <code>plot_heatmap</code> were instrumental in tuning parameters to achieve this level of performance for the LR model.</p>
+<h2>Part 4: Evaluation and Learnings</h2>
+<p>Evaluating the results from Part 3, the optimal <strong>Logistic Regression strategy</strong> stands out significantly. After accounting for transaction costs, this strategy yielded an impressive <strong>Annualized Return of 78.5%</strong> and a <strong>Sharpe Ratio of 2.335</strong>.</p>
+<p><img alt="AI16Z_02_strategy_return" src="images/AI16Z_02_strategy_return.png"></p>
+<p>The fact that the LR strategy achieved a Sharpe Ratio of 2.335 demonstrates the importance of diligent backtesting, including the employment of realistic costs and systematic parameter optimization, such as threshold values and momentum settings. An important aspect of this methodology was the utilization of heatmap visualizations to determine how effective the strategy was with different combinations of thresholds. This analysis also uncovered a wide effective range of thresholds, specifically upper thresholds ranging from 0.15 to 0.35 and lower thresholds ranging from -0.3 to -0.05, within which the strategy consistently performed well. The existence of such a wide range  implies that the strategy is not highly sensitive to the particular value of thresholds employed, which reduces the danger of overfitting to past data. By choosing thresholds from this strong range instead of focusing on the optimization of one optimal value, we strengthen the strategy's ability to succeed in future, yet unseen, market conditions. We are, nevertheless, aware of certain limitations, for example, the lack of slippage modeling and the intrinsic difficulty in providing assurance that past performance will mirror future success. Ultimately, out-of-sample reported performance will be the ultimate judgment of the strategy's success.</p>
+<p>Compared to the Buy-and-Hold Bitcoin benchmark, which had a Sharpe Ratio of 1.008 over the same period, our Logistic Regression strategy <strong>demonstrated substantially superior risk-adjusted returns</strong>. This suggests that the sentiment signals derived from the LR model, when translated into trades using an optimized approach, provided a clear edge over a passive investment strategy. Furthermore, the <strong>Maximum Drawdown for the LR strategy was 14%</strong>. While any drawdown represents risk, its level relative to the high annualized return and Sharpe ratio positions the strategy favorably, particularly this MDD is lower than the benchmark's MDD (51%) over the same period.</p>
+<p>The selection of Logistic Regression as our top model was initially driven by its lower error rates (MAE 0.15613, RMSE 0.19246) in the sentiment prediction task compared to Naive Bayes, Random Forest, and KNN. This indicates its relative effectiveness in learning from the combined TextBlob and VADER features within the rolling window framework. This superior sentiment prediction appears to have translated well into a more effective trading signal.</p>
+<p>Key learnings from this project include:</p>
+<ul>
+<li><strong>The Devil's in the Details:</strong> Correctly aligning time-series data, implementing transaction costs, and ensuring the rolling window logic was sound were critical. The strong performance of the LR strategy hinges on these precise implementations.</li>
+<li><strong>Sentiment can be a Powerful, Albeit Noisy, Signal:</strong> While news sentiment is complex, the Logistic Regression model, using features from TextBlob and VADER, was able to extract a signal that, when optimized with appropriate trading logic, proved highly profitable in backtesting.</li>
+<li><strong>Backtesting is Iterative and Imperfect:</strong> The achievement of a 2.335 Sharpe Ratio for the LR strategy underscores the importance of rigorous backtesting, including realistic costs and the iterative tuning of parameters (like thresholds and momentum settings). However, we acknowledge limitations like the absence of slippage modeling and the inherent risk of overfitting to historical data, even with a rolling window approach. Future out-of-sample performance is the true test.</li>
+<li><strong>Feature Engineering and Model Choice are Intertwined:</strong> The Logistic Regression model's success was tied to its input features (TextBlob polarity, subjectivity, VADER compound). Its ability to outperform other models highlights the importance of this combination for this specific task.</li>
+<li><strong>The Value of Process:</strong> Developing the <code>rolling_models.py</code> pipeline and the <code>Backtest.py</code> framework, and systematically evaluating models to identify Logistic Regression as the most potent, taught us significant practical lessons in quantitative strategy development.</li>
+</ul>
+<h2>Conclusion: Beyond the Code</h2>
+<p>Building the sentiment analysis engine and the backtesting framework was a challenging yet rewarding exercise. It involved navigating complexities from messy text data and time-series constraints to realistic performance evaluation. Implementing the rolling window, experimenting with diverse feature sets (lexicon scores, word counts), applying multiple ML models, and carefully constructing the backtest with costs provided a hands-on education in quantitative strategy development.</p>
+<p>While our final project report details the quantitative outcomes across all tested models and configurations, we hope this reflective post illuminates the intricate <em>process</em> behind those results. This journey through Python coding, data analysis, debugging, and critical evaluation has deeply enhanced our understanding of the technical skills, domain knowledge, and critical thinking essential in the field of quantitative finance.</p>
+<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width < 768) ? "left" : align;
+        indent = (screen.width < 768) ? "0em" : indent;
+        linebreak = (screen.width < 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/latest.js?config=TeX-AMS-MML_HTMLorMML';
+
+    var configscript = document.createElement('script');
+    configscript.type = 'text/x-mathjax-config';
+    configscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'none' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        availableFonts: ['STIX', 'TeX']," +
+        "        preferredFont: 'STIX'," +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(configscript);
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+</script>
+
+
+             
+ 
+            
+            
+            
+
+
+
+
+
+
+
+            <hr/>
+        </div>
+        <section id="article-sidebar" class="span2">
+            <h4>Published</h4>
+            <time itemprop="dateCreated" datetime="2025-05-06T10:00:00+08:00">Tue 06 May 2025</time>
+            <h4>Category</h4>
+            <a class="category-link" href="https://buehlmaier.github.io/FINA4350-student-blog-2025-01/categories.html#reflective-report-ref">Reflective Report</a>
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article">
+                <li><a href="https://buehlmaier.github.io/FINA4350-student-blog-2025-01/tags.html#group-ai16z-ref">Group AI16Z
+                    <span class="superscript">2</span>
+</a></li>
+            </ul>
+<h4>Contact</h4>
+<div id="sidebar-social-link">
+    <a href="https://github.com/buehlmaier/FINA4350-student-blog-2025-01" title="" target="_blank" rel="nofollow noopener noreferrer">
+        <svg xmlns="http://www.w3.org/2000/svg" aria-label="GitHub" role="img" viewBox="0 0 512 512"><rect width="512" height="512" rx="15%" fill="#1B1817"/><path fill="#fff" d="M335 499c14 0 12 17 12 17H165s-2-17 12-17c13 0 16-6 16-12l-1-50c-71 16-86-28-86-28-12-30-28-37-28-37-24-16 1-16 1-16 26 2 40 26 40 26 22 39 59 28 74 22 2-17 9-28 16-35-57-6-116-28-116-126 0-28 10-51 26-69-3-6-11-32 3-67 0 0 21-7 70 26 42-12 86-12 128 0 49-33 70-26 70-26 14 35 6 61 3 67 16 18 26 41 26 69 0 98-60 120-117 126 10 8 18 24 18 48l-1 70c0 6 3 12 16 12z"/></svg>
+    </a>
+</div>
+            
+
+
+
+
+
+            
+
+
+
+
+
+        </section>
+</div>
+</article>
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe.
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides.
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo https://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                    </div>
+                    <div class="span1"></div>
+                </div>
+            </div>
+        </div>
+<footer>
+
+
+
+
+    <div id="fpowered">
+        Powered by: <a href="http://getpelican.com/" title="Pelican Home Page" target="_blank" rel="nofollow noopener noreferrer">Pelican</a>
+        Theme: <a href="https://elegant.oncrashreboot.com/" title="Theme Elegant Home Page" target="_blank" rel="nofollow noopener noreferrer">Elegant</a>
+    </div>
+</footer>            <script src="//code.jquery.com/jquery.min.js"></script>
+        <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+        <script src="https://buehlmaier.github.io/FINA4350-student-blog-2025-01/theme/js/elegant.prod.9e9d5ce754.js"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+
+    <script>
+    (function () {
+        if (window.location.hash.match(/^#comment-\d+$/)) {
+            $('#comment_thread').collapse('show');
+        }
+    })();
+    window.onhashchange=function(){
+        if (window.location.hash.match(/^#comment-\d+$/))
+            window.location.reload(true);
+    }
+    $('#comment_thread').on('shown', function () {
+        var link = document.getElementById('comment-accordion-toggle');
+        var old_innerHTML = link.innerHTML;
+        $(link).fadeOut(200, function() {
+            $(this).text('Click here to hide comments').fadeIn(200);
+        });
+        $('#comment_thread').on('hidden', function () {
+            $(link).fadeOut(200, function() {
+                $(this).text(old_innerHTML).fadeIn(200);
+            });
+        })
+    })
+</script>
+
+    </body>
+    <!-- Theme: Elegant built for Pelican
+        License : MIT -->
+</html>
